@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cleaning Two Chat Datasets</title>
+<meta name="description" content="Nine data-cleaning strategies run over two chat datasets (Glaive function calling + IndicAlign Anudesh), with the numbers from every stage.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <button class="theme-toggle" id="theme" type="button">Dark</button>
+  <h1>Cleaning two chat datasets for SFT</h1>
+  <p class="lede">I took two public chat datasets, ran nine standard LLM data-cleaning
+  strategies over them, and kept the counts from each stage. All numbers on this page are read from the
+  pipeline's output files, nothing is typed in by hand.</p>
+  <div class="tiles">
+    <div class="tile"><div class="label">Cleaning strategies</div><div class="value">9</div><div class="sub">8 pipeline stages + format discipline</div></div>
+    <div class="tile"><div class="label">Raw input</div><div class="value"><span data-k="totals.raw_tokens" data-fmt="m"></span> tokens</div><div class="sub"><span data-k="totals.raw_docs"></span> conversations</div></div>
+    <div class="tile"><div class="label">After cleaning</div><div class="value"><span data-k="totals.final_tokens" data-fmt="m"></span> tokens</div><div class="sub"><span data-k="totals.final_docs"></span> conversations</div></div>
+    <div class="tile"><div class="label">Tokens kept</div><div class="value"><span data-k="totals.tokens_retained_pct" data-fmt="pct"></span></div><div class="sub"><span data-k="totals.docs_retained_pct" data-fmt="pct"></span> of conversations</div></div>
+  </div>
+  <p class="small">Tokens are counted with the Qwen3 tokenizer (pinned revision), not estimated from word counts.</p>
+  <nav class="toc" aria-label="Sections">
+    <a href="#strategies">1. How many strategies</a><a href="#dataset">2. Dataset</a><a href="#pipeline">3. Pipeline</a>
+    <a href="#cleaned">4. What I cleaned and why</a><a href="#extra">5. Other problems</a><a href="#stats">6. Final numbers</a>
+    <a href="#takeaway">7. What surprised me</a><a href="#checks">8. Checks</a>
+  </nav>
+</header>
+
+<main>
+<section id="strategies">
+  <h2>1. How many strategies? Nine.</h2>
+  <p>The course material I worked from (ERA V5, Session 4) describes the pipeline in two lists. One has eight stages:
+  extract, normalize, language ID, quality filter, deduplicate, PII scrub, decontaminate, manifest, with ghost tags
+  folded into "normalize". The other also has eight items, but drops extraction and lists format discipline (the
+  ghost-tag trap) on its own. Taking both lists together gives nine. I did not count sub-steps (the nine heuristic
+  rules, exact vs near dedup, regex vs NER, canary strings) as separate strategies, since each belongs to one stage.</p>
+
+  <ol class="strategies">
+    <li class="strategy">
+      <header><span class="n">01</span><h3>Extraction</h3><span class="badge na">no HTML here</span></header>
+      <p class="why">Turn a raw web page into its text and drop menus, cookie banners and footers. Naive tag stripping keeps
+      that boilerplate as if it were content.</p>
+      <p class="result">Both sources already ship plain text inside JSON/Parquet, so there was no HTML to extract. What did
+      apply was the "is the text actually there" part: <b data-k="stages.extract.removed_total"></b> Anudesh rows had a
+      null or empty prompt/response and were dropped.</p>
+    </li>
+    <li class="strategy">
+      <header><span class="n">02</span><h3>Text normalization</h3><span class="badge modified">changed records</span></header>
+      <p class="why">NFC, strip zero-width spaces, BOMs, bidi and control characters, unescape HTML entities, collapse
+      whitespace, but keep ZWJ/ZWNJ where they are part of an Indic word. A byte-level tokenizer learns every stray
+      character (one model in the course case study ended up with 46 garbage tokens), and a cleaner that deletes all invisible characters breaks Indic text.</p>
+      <p class="result">Anudesh: kept <b data-k="derived.normalize.anudesh_joiners_kept"></b> joiners inside Indic words, removed
+      <b data-k="derived.normalize.anudesh_zwsp_removed"></b> zero-width spaces, <b data-k="derived.normalize.anudesh_bom_removed"></b>
+      BOMs and <b data-k="derived.normalize.anudesh_stray_joiners_removed"></b> stray joiners; NFC rewrote
+      <b data-k="derived.normalize.anudesh_nfc_fields"></b> fields. Glaive: almost only whitespace, plus
+      <b data-k="derived.normalize.glaive_control_chars"></b> control characters.</p>
+    </li>
+    <li class="strategy">
+      <header><span class="n">03</span><h3>Format discipline (the ghost-tag trap)</h3><span class="badge modified">changed records</span></header>
+      <p class="why">Pick one conversation format with real special tokens and rewrite every source into it. Literal markers
+      like <code>USER:</code> get learned as ordinary text and later fight the real special tokens during SFT.</p>
+      <p class="result">Converted <b data-k="derived.format.markers_converted"></b> literal markers in Glaive into roles
+      (including <b data-k="derived.format.endoftext_literals"></b> literal <code>&lt;|endoftext|&gt;</code> strings), which saved
+      <b data-k="derived.format.tokens_saved" data-fmt="m"></b> tokens. Repaired <b data-k="derived.format.fc_repaired"></b> function
+      calls that were not valid JSON. Dropped <b data-k="derived.format.removed_glaive"></b> corrupt rows.</p>
+    </li>
+    <li class="strategy">
+      <header><span class="n">04</span><h3>Language ID and validation</h3><span class="badge removed">removed records</span></header>
+      <p class="why">Detect each document's language at runtime and check it against what the source claims, instead of
+      trusting a folder name or label. Mislabels skew every per-language number.</p>
+      <p class="result">Removed <b data-k="derived.langid.removed"></b> conversations whose user text or reply was confidently in a
+      language outside the corpus targets. Flagged (but kept) <b data-k="derived.langid.anudesh_flagged_reply_language"></b>
+      replies in a different Indic language from the question, and kept <b data-k="derived.langid.anudesh_mixed_kept"></b>
+      code-switched conversations as "mixed".</p>
+    </li>
+    <li class="strategy">
+      <header><span class="n">05</span><h3>Quality filtering</h3><span class="badge removed">removed records</span></header>
+      <p class="why">Cheap heuristic rules first (Gopher/C4 style), then a classifier trained on labels from a bigger model.
+      Junk wastes compute, but rules tuned on English throw away good Indic text.</p>
+      <p class="result">My chat-specific rules removed <b data-k="derived.quality.removed"></b> conversations (greeting-only prompts,
+      replies stuck in a loop, LaTeX broken upstream). Run as written, the standard heuristic rules would have dropped
+      <b data-k="derived.quality.w4_anudesh_indic_would_drop_pct" data-fmt="pct"></b> of Indic answers, so I only used them as an audit.
+      The classifier layer is in section 4.</p>
+    </li>
+    <li class="strategy">
+      <header><span class="n">06</span><h3>Deduplication</h3><span class="badge removed">removed records</span></header>
+      <p class="why">Exact hashes, then near duplicates with shingles, MinHash and LSH, across the whole corpus rather than shard
+      by shard. Repeats waste compute and push the model to memorise.</p>
+      <p class="result">Removed <b data-k="derived.dedup.exact_removed"></b> exact and <b data-k="derived.dedup.near_removed"></b> near
+      duplicates, almost all from Glaive, whose generator repeated the same scenarios (one pizza refusal appears
+      <b data-k="dedup.largest_cluster"></b> times). Duplicates across the two sources: <b data-k="dedup.near_clusters_spanning_sources"></b>.</p>
+    </li>
+    <li class="strategy">
+      <header><span class="n">07</span><h3>PII removal</h3><span class="badge modified">changed records</span></header>
+      <p class="why">Regex for structured identifiers (emails, phone numbers, IP addresses) and a name layer for people.
+      The name layer is where precision and recall fight, especially for Indic names and places.</p>
+      <p class="result">Masked <b data-k="derived.pii.email"></b> emails, <b data-k="derived.pii.phone"></b> phone numbers and
+      <b data-k="derived.pii.ip"></b> public IPs. Kept <b data-k="derived.pii.email_placeholder_kept"></b> example.com-style
+      addresses and <b data-k="derived.pii.ip_nonpublic_kept"></b> private/loopback IPs. Names were audited on a sample, not masked
+      (section 4 says why).</p>
+    </li>
+    <li class="strategy">
+      <header><span class="n">08</span><h3>Decontamination</h3><span class="badge removed">removed records</span></header>
+      <p class="why">Fingerprint the evaluation sets, scan the training data for overlap, remove hits. Otherwise a benchmark
+      score measures memory, not ability.</p>
+      <p class="result">Scanned against <b data-k="derived.decontam.eval_items"></b> test items from GSM8K, MATH-500, HumanEval and
+      MMLU. <b data-k="derived.decontam.removed"></b> conversations shared a 13-word sequence with a test item. I read all of
+      them: none is a copied test question.</p>
+    </li>
+    <li class="strategy">
+      <header><span class="n">09</span><h3>Reproducibility and the manifest</h3><span class="badge audited">checked</span></header>
+      <p class="why">Same input and config must give the same output, IDs come from content, and every shard carries a
+      manifest (source, licence, contributor, script hashes, content hash, tokens, languages). No manifest, no ingest.</p>
+      <p class="result">Two shard manifests, both admitted. A full second run produced identical content hashes:
+      <span data-k="checks.determinism"></span>.</p>
+    </li>
+  </ol>
+</section>
+
+<section id="dataset">
+  <h2>2. The dataset I picked</h2>
+  <p>The target was a 10 to 100M-token chat dataset of the kind people generate with a model and put on
+  Hugging Face. I looked at about 20 candidates (reasoning distills, real chat logs,
+  function-calling sets, Indic instruction sets) and measured the two I picked myself.</p>
+  <div class="panel table-wrap">
+    <table>
+      <thead><tr><th>Shard</th><th>Source</th><th class="num">Conversations</th><th class="num">Tokens</th><th>Licence</th></tr></thead>
+      <tbody>
+        <tr><td><span class="sw glaive" style="display:inline-block;width:10px;height:10px;border-radius:2px"></span> Glaive</td>
+          <td><code>glaiveai/glaive-function-calling-v2</code><br><span class="small">synthetic function-calling chats, English</span></td>
+          <td class="num" data-k="by_source.glaive.raw_docs"></td><td class="num" data-k="by_source.glaive.raw_tokens"></td><td>Apache-2.0</td></tr>
+        <tr><td><span class="sw anudesh" style="display:inline-block;width:10px;height:10px;border-radius:2px"></span> Anudesh</td>
+          <td><code>ai4bharat/indic-align</code>, Anudesh config<br><span class="small">crowd-written prompts in Indian languages + English, Llama-2-70B-Chat answers</span></td>
+          <td class="num" data-k="by_source.anudesh.raw_docs"></td><td class="num" data-k="by_source.anudesh.raw_tokens"></td><td>CC-BY-4.0</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Why these two:</p>
+  <ul class="plain">
+    <li><b>They match an SFT mix I had planned.</b> The plan was a model that is good at agentic work and Indian
+    languages, with a 30% Indic share in SFT. Glaive covers tool calling, and IndicAlign comes from IndicLLMSuite
+    (AI4Bharat). This is a small pilot of that mix.</li>
+    <li><b>It is the classic ghost-tag situation.</b> Glaive writes speakers as literal text (<code>USER:</code>,
+    <code>ASSISTANT:</code>, <code>&lt;|endoftext|&gt;</code>), Anudesh stores <code>[prompt, response]</code> lists. Two
+    sources, two formats, one canonical format needed.</li>
+    <li><b>The problems are real and different.</b> Glaive breaks on format and duplication, Anudesh on script and language.
+    Neither card mentions deduplication or PII scrubbing, and the data confirmed it. I did not pick them for big
+    removal numbers.</li>
+  </ul>
+  <p>No sampling was needed: each source is inside 10 to 100M tokens on its own and the two together are still under
+  100M. From IndicAlign (28 GB in total) I took only the Anudesh file. Both are pinned to a commit and checked by sha256.</p>
+  <p class="note">Licence note that goes in the manifest: Anudesh's answers were generated by Llama-2-70B-Chat, and the Llama 2
+  licence restricts using its outputs to improve other models. Glaive's card does not say which model generated it.
+  I am not republishing the cleaned files.</p>
+  <details class="tableview"><summary>Other candidates and why I passed on them</summary>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Dataset</th><th>Why not</th></tr></thead>
+      <tbody>
+        <tr><td>lordx64 Opus 4.7 distill sets</td><td>The reference example for the task; about 8 to 11M tokens.</td></tr>
+        <tr><td>Gryphe/Opus-4.6-Reasoning-24k</td><td>Already MinHash-deduped and zero-width-cleaned by its author; overlaps the example's prompt pool.</td></tr>
+        <tr><td>Roman1111111 Claude Sonnet/Opus sets</td><td>One is over 150M tokens and pre-filtered, the other under 10M.</td></tr>
+        <tr><td>bespokelabs/Bespoke-Stratos-17k</td><td>Close runner-up (R1 traces with literal <code>&lt;|begin_of_thought|&gt;</code> tags), but English only with one format.</td></tr>
+        <tr><td>allenai/WildChat-1M (one shard)</td><td>Real users, already Presidio-redacted, very little Indic text.</td></tr>
+        <tr><td>lmsys/lmsys-chat-1m, xLAM, ShareChat</td><td>Gated behind terms I would have to accept.</td></tr>
+        <tr><td>CohereLabs/aya_dataset</td><td>Good option, but only partly Indic and its labels are already very clean.</td></tr>
+        <tr><td>sarvamai/samvaad-hi-v1</td><td>Already used as a worked example in the course material.</td></tr>
+        <tr><td>Indic_Chat_Dataset, indic-instruct-data-v0.1</td><td>Already filtered, or no clear licence.</td></tr>
+      </tbody>
+    </table></div>
+  </details>
+</section>
+
+<section id="pipeline">
+  <h2>3. The pipeline, in order</h2>
+  <p>The stages follow the eight-stage order above, with format discipline right after normalization. Cleaning happens before any
+  hash is computed, so IDs and dedup work on the cleaned text. The bars show the tokens still alive after each stage.</p>
+  <div class="panel">
+    <div class="legend"><span class="key"><span class="sw glaive"></span>Glaive</span><span class="key"><span class="sw anudesh"></span>Anudesh</span></div>
+    <div class="chart" id="waterfall"></div>
+    <details class="tableview"><summary>Table view</summary><div class="table-wrap" id="waterfall-table"></div></details>
+  </div>
+  <p class="small">The format stage lowers Glaive's count without removing many conversations: replacing each literal marker
+  (several subword tokens) with one special token saves <span data-k="derived.format.tokens_saved_pct" data-fmt="pct"></span>
+  of Glaive's tokens. Anudesh goes up slightly there because role tokens are counted and its raw text had none.</p>
+</section>
+
+<section id="cleaned">
+  <h2>4. What I cleaned, why, and how</h2>
+
+  <h3>Normalization: keep the joiners, drop the junk</h3>
+  <p>A minimal normalizer is about fifteen lines. Mine does the same steps but is longer because it has to know about code
+  and scripts: NFC, remove ZWSP / BOM / bidi controls / C0-C1 controls / soft hyphens / private-use / U+FFFD, unescape real
+  HTML entities, collapse whitespace. Two decisions of my own: whitespace inside
+  code blocks is left alone (Python indentation is meaningful), and a ZWJ or ZWNJ is kept only when it sits next to a
+  Brahmic or Arabic-script letter or inside an emoji sequence.</p>
+  <div class="panel">
+    <p class="small">A ZWNJ kept inside a word (shown as a green chip):</p>
+    <div data-example="normalize:zwnj_kept_indic:0" data-mode="ba"></div>
+  </div>
+  <div class="panel">
+    <p class="small">A zero-width space removed (red chip before, gone after):</p>
+    <div data-example="normalize:zero_width_space:0" data-mode="ba"></div>
+  </div>
+  <p>NFC changed <span data-k="derived.normalize.anudesh_nfc_fields"></span> Anudesh fields. These were almost all Bengali
+  য় and Devanagari letters like ज़ stored as one precomposed code point; NFC splits them into letter + nukta, so the two
+  spellings of the same letter now tokenize the same way. The <span data-k="derived.normalize.anudesh_stray_joiners_removed"></span>
+  stray joiners I removed were inside Latin words, in runs of three between spaces, or left over from emoji whose base character was lost.
+  On Glaive, normalization was almost all whitespace: only <span data-k="derived.normalize.glaive_docs_invisible_fix"></span>
+  conversations had a real encoding fix.</p>
+
+  <h3>Format discipline: one format with real special tokens</h3>
+  <p>Glaive stores each conversation as one string with role markers typed into the text, and it is not even consistent with itself:
+  function-calling rows separate turns with three newlines, plain-chat rows with two. I parse the markers into roles and store
+  conversations as <code>{role, content, tool_call}</code> messages. When the data is turned into training text, each turn
+  starts with one special token (<code>&lt;|system|&gt;</code>, <code>&lt;|user|&gt;</code>, <code>&lt;|assistant|&gt;</code>,
+  <code>&lt;|tool|&gt;</code>) and the conversation ends with a single <code>&lt;|end|&gt;</code>.</p>
+  <div class="panel"><div data-example="format:0" data-mode="format"></div></div>
+  <p><span data-k="derived.format.fc_invalid_upstream_pct" data-fmt="pct"></span> of Glaive's
+  <span data-k="derived.format.function_calls"></span> function calls were not valid JSON, because the arguments were written as a
+  single-quoted string (<code>"arguments": '{"country": "France"}'</code>). I decode that string back into a JSON object; for
+  <span data-k="derived.format.fc_repaired_apostrophe"></span> of them I also had to undo escaped apostrophes (<code>It\'s</code>).
+  A model trained on the original would learn to emit broken tool calls.</p>
+  <div data-removals="format"></div>
+  <p class="small">I also trimmed <span data-k="derived.format.trailing_user_trimmed"></span> conversations that ended on a user
+  message with no answer (nothing to learn from that last turn).</p>
+
+  <h3>Language ID: target languages only</h3>
+  <p>Each conversation gets two detections, one for the user turns and one for the replies: a script histogram,
+  then <code>py3langid</code> for Latin-script text, plus a small word list for Hindi typed in Latin letters, which no off-the-shelf
+  detector has a label for. A detection only counts at <span data-k="config.langid.min_conf"></span> confidence or more. Language codes go through a strict table that
+  raises on anything unknown, so a <code>te</code>/<code>tel</code> mix-up fails loudly in a test.</p>
+  <p>The removals are conversations confidently in a language outside the corpus targets (English plus the 14 Indian languages
+  IndicAlign lists). Most were the model answering in the wrong language. In Anudesh, Llama answered a Telugu question written in Latin
+  letters in Spanish, a one-word prompt in French and an Urdu-script request in Persian; in Glaive, an English request for
+  SQL got its answer in French.</p>
+  <div class="panel"><div data-example="langid:assistant_language_outside_source_claim:0" data-mode="qa"></div></div>
+  <div data-removals="langid"></div>
+  <p>I first also dropped replies written in a different Indian language from the question. Reading what that caught changed
+  my mind: "list out all the alphabets in Telugu" and "teach me ten Telugu words using Kannada and Hindi" are good conversations
+  where the answer should switch language. That rule now only flags
+  (<span data-k="derived.langid.anudesh_flagged_reply_language"></span> conversations).</p>
+
+  <h3>Quality filtering: two layers, and an English bias</h3>
+  <p>I ran the nine standard heuristic rules (Gopher/C4 style) as written on every assistant reply, with code blocks removed. On this data they are
+  not usable as a filter. The chart shows how often each rule fails on Anudesh replies, split by the script of the answer
+  (same prompts, same model; only the script differs):</p>
+  <div class="panel">
+    <div class="legend"><span class="key"><span class="sw latin"></span>Anudesh, Latin-script answers</span><span class="key"><span class="sw indic"></span>Anudesh, Indic-script answers</span></div>
+    <div class="chart" id="filter-bias"></div>
+    <details class="tableview"><summary>Table view</summary><div class="table-wrap" id="filter-bias-table"></div></details>
+  </div>
+  <p>The "at least two of <i>the, be, to, of, and, that, have, with</i>" rule fails
+  <span data-k="derived.quality.w4_anudesh_indic_stopword_fail_pct" data-fmt="pct"></span> of Indic answers by construction, and
+  the 50-word minimum fails every short correct answer. Overall the rules would drop
+  <span data-k="derived.quality.w4_anudesh_indic_would_drop_pct" data-fmt="pct"></span> of Indic answers but
+  <span data-k="derived.quality.w4_anudesh_latin_would_drop_pct" data-fmt="pct"></span> of Latin-script answers from the same
+  dataset. English-tuned rules throw away correct Telugu, Hindi and Bengali text at scale. So I kept the audit numbers and used rules that make sense
+  for chat in any script:</p>
+  <ul class="plain">
+    <li>the only user message is a bare greeting ("hi", "Hello", "नमस्ते");</li>
+    <li>an assistant reply that is empty;</li>
+    <li>a reply stuck in a loop: a short piece of text repeated <span data-k="config.quality.loop_min_repeats"></span> or more times in a row (<code>,000,000,000…</code>,
+    <code>quad quad quad…</code>), with code blocks, table rows and rule lines ignored;</li>
+    <li>a reply whose LaTeX has visibly lost its backslashes (see section 5).</li>
+  </ul>
+  <p>The loop rule is my second version. The first used the heuristic set's own repetition thresholds (one character pair at 20% or more of
+  the text, 30% or more repeated lines), since those do not depend on language. A review of <span data-k="derived.fp.repetition_reviewed"></span> of those removals found <span data-k="derived.fp.repetition_wrong"></span> were fine:
+  markdown tables, a guitar tab, a binary-encoded answer the user asked for, meal plans and seating charts where items repeat on
+  purpose. So I replaced both with a rule that looks for the loop itself.</p>
+  <div data-removals="quality"></div>
+  <div class="panel"><div data-example="quality:looping_output:0" data-mode="qa"></div></div>
+  <p><b>Layer 2, the classifier.</b> I used the usual recipe at toy scale: an LLM (Claude Sonnet, following a written
+  rubric) scored <span data-k="derived.classifier.labelled"></span> random cleaned conversations from 0 to 5 for how useful they
+  are as SFT data, and I trained a small logistic-regression model on hashed character n-grams to imitate those scores. On
+  held-out conversations it gets an AUC of <span data-k="derived.classifier.test_auc"></span>, which sounds fine until you split
+  by script. The labels keep <span data-k="derived.classifier.indic_label_keep" data-fmt="rate"></span> of the held-out Indic
+  conversations; the classifier keeps <span data-k="derived.classifier.indic_pred_keep" data-fmt="rate"></span>. It learned
+  "Indic script means low quality".</p>
+  <p>Part of that is real. The labeller itself kept only <span data-k="derived.classifier.indic_label_keep_all" data-fmt="rate"></span>
+  of Indic conversations against <span data-k="derived.classifier.latin_label_keep_all" data-fmt="rate"></span> of the others, mostly
+  because Llama-2 often answers questions in Indian languages with a bare "I don't know" or with garbled text. But the classifier
+  turns a quality gap into a script filter. A model trained only on Indic labels ranks them much better (AUC
+  <span data-k="derived.classifier.indic_only_auc"></span>), but from <span data-k="derived.classifier.indic_only_train_n"></span>
+  examples, which is too few to delete data with. So the classifier removes nothing here, and its scores are kept as an audit. This is the
+  familiar problem of an English-heavy quality proxy undervaluing Indic data, small enough to see in one table.</p>
+
+  <h3>Deduplication: exact, then MinHash + LSH, globally</h3>
+  <p>Exact duplicates are found by hashing the whole cleaned conversation. For near duplicates I implemented the three standard steps
+  myself: word 5-gram shingles, MinHash signatures with <span data-k="config.dedup.num_perm"></span> hashes, and LSH with
+  <span data-k="config.dedup.bands"></span> bands of <span data-k="config.dedup.rows"></span> rows (the FineWeb setting;
+  the S-curve midpoint is (1/b)<sup>1/r</sup> = <span data-k="dedup.lsh_threshold_formula"></span>). LSH only proposes candidates. Every
+  candidate pair is then checked with its true Jaccard, and only pairs at <span data-k="config.dedup.jaccard_threshold"></span>
+  or above count.</p>
+  <div class="panel">
+    <div class="legend"><span class="key"><span class="sw glaive"></span>removed as near duplicate</span><span class="key"><span class="sw" style="background:var(--baseline)"></span>LSH candidate, kept (true Jaccard below threshold)</span></div>
+    <div class="chart" id="jaccard-hist"></div>
+    <p class="small"><span data-k="dedup.near_candidate_pairs"></span> candidate pairs from LSH, <span data-k="dedup.near_verified_pairs"></span>
+    of them confirmed. The MinHash estimate is only used to find candidates; the decision uses the exact value.</p>
+  </div>
+  <p>One decision of my own here: a conversation is removed only if it is a confirmed near copy of a conversation that is
+  <i>kept</i>. Plain clustering (union-find) chains A~B~C together even when A and C are not alike; that would have removed
+  <span data-k="derived.dedup.union_find_would_remove"></span> instead of <span data-k="derived.dedup.near_removed"></span>.</p>
+  <div class="panel"><p class="small">A pair right at the threshold:</p><div data-example="dedup:near_threshold:1" data-mode="pair"></div></div>
+  <div data-removals="dedup"></div>
+  <p>The dedup ran over both shards together (global, not per shard), but it found <span data-k="dedup.near_clusters_spanning_sources"></span>
+  near duplicates and <span data-k="dedup.exact_cross_source"></span> exact duplicates across the two sources. That makes sense, since an
+  English tool-calling set and an Indic prompt set do not share text. Global and local dedup gave the same answer here, and the global
+  pass would only start to matter with overlapping sources (for example two web crawls).</p>
+
+  <h3>PII: mask structured identifiers, audit names</h3>
+  <p>The regex layer covers emails, phones and IPs (with typed placeholders <code>[EMAIL]</code> <code>[PHONE]</code>
+  <code>[IP]</code>), with a few changes to cut false positives on this data. A phone number needs a phone shape (country code,
+  area code or separator groups); a bare 10-digit number in a maths answer is left alone. Only globally routable IPs are masked:
+  127.0.0.1 and 192.168.x.x are not personal. An IPv6 match needs at least three groups, because the review below caught Python
+  slices like <code>a[0::2]</code> and flashcard markers like <code>{{c1::...}}</code> being masked as addresses. Only the reserved example domains (example.com, .test) count as placeholders,
+  because domains like mail.com are real.</p>
+  <div class="panel"><div data-example="pii:0" data-mode="pii"></div></div>
+  <p>For names I did not run a model over the whole corpus. I had an LLM mark every person name in
+  <span data-k="derived.ner.sample"></span> random cleaned conversations. <span data-k="derived.ner.public"></span> were public
+  figures (politicians, cricketers, authors, scientists, deities), <span data-k="derived.ner.fictional"></span> were fictional or
+  placeholder names, and <span data-k="derived.ner.private"></span> looked like private people. Another
+  <span data-k="derived.ner.likely_false_positive"></span> words would probably have been caught wrongly by a name detector: brands,
+  temples, festivals, and Indic common nouns that are also given names (<i>tulsi</i>, <i>ganga</i>). Most of the public names in
+  Anudesh are written in Indic scripts, where a capitalisation-based detector sees nothing. Masking names here would remove
+  public facts and protect nobody (masking "Mahatma Gandhi" helps no one), so names were left in.</p>
+
+  <h3>Decontamination: the scan found phrases, not leaks</h3>
+  <p>I fingerprinted the test splits of the openly downloadable evaluation benchmarks (GSM8K, MATH-500, HumanEval,
+  MMLU; MILU is gated), <span data-k="decontam.fingerprints"></span> distinct 13-word sequences in all, and scanned every conversation.
+  <span data-k="derived.decontam.removed"></span> conversations matched at least one. I read every hit. None is a copied test
+  question. They share the opening of <i>A Tale of Two Cities</i> or a line of the Declaration of Independence with MMLU history
+  questions, the textbook phrase "where B is the area of the base and h is the height", a generic statistics phrase, or a nested
+  <code>for</code> loop. The
+  highest share of any single test item found in a conversation was
+  <span data-k="derived.decontam.max_item_coverage_pct" data-fmt="pct"></span>. I removed them anyway, since the rule is meant to be
+  conservative and it costs nothing, but "no contamination" here only means: no overlap with these four test sets at the 13-gram
+  level. Canary strings found: <span data-k="derived.decontam.canaries"></span>.</p>
+  <div class="panel"><div data-example="decontam:0" data-mode="decontam"></div></div>
+
+  <h3>Manifest and reproducibility</h3>
+  <p>Each shard has a manifest with the standard provenance fields plus a few more: source URL and commit, file sha256, licence and a
+  terms note, contributor, every cleaning script by name and code hash, the config hash, the sha256 of the cleaned file,
+  token count, and language shares. A shard is blocked if the licence is unknown or a required field is missing. Document IDs
+  are the sha256 of the cleaned conversation, and the shard ID comes from the content hash. No timestamp is part of any ID.</p>
+  <div class="panel"><pre class="snip" id="manifest-json" style="max-height:360px"></pre></div>
+</section>
+
+<section id="extra">
+  <h2>5. Other problems I found and handled</h2>
+  <ul class="plain">
+    <li><b>Broken tool-call JSON</b> in <span data-k="derived.format.fc_invalid_upstream_pct" data-fmt="pct"></span> of Glaive's
+    function calls (repaired, see above).</li>
+    <li><b>Two turn separators in one file.</b> Glaive's function-calling rows use three newlines, its plain-chat rows two. A parser
+    written for one leaves <code>USER:</code> and <code>ASSISTANT:</code> inside the text of the other third of the dataset. My first
+    parser did exactly that.</li>
+    <li><b>Truncated function responses.</b> Glaive conversations whose simulated tool output stops mid-JSON
+    (<code>{"lyrics": "The</code>) were dropped.</li>
+    <li><b>Markers leaked into data.</b> A few Glaive tool responses contain <code>\nASSISTANT:</code> in the middle of a JSON
+    string, a generation artifact. Dropped, not silently edited.</li>
+    <li><b>Backslashes stripped upstream.</b> One of the labelling passes noticed LaTeX answers with no backslashes
+    (<code>begin{document}</code>, <code>frac{1}{2}</code>). Checking the raw file showed it is the whole dataset: <span data-k="upstream.backslashes_total"></span> backslashes in
+    <span data-k="upstream.rows"></span> conversations, and of the <span data-k="upstream.rows_with_code_block"></span> raw conversations
+    with a code block, <span data-k="upstream.rows_with_code_block_and_any_backslash"></span> contains a backslash. HTML pages were turned
+    into plain text with <code>====</code> underlines too.
+    I removed the <span data-k="derived.quality.latex_removed"></span> conversations whose replies contain obviously broken LaTeX.
+    Code that quietly lost an escape (<code>\n</code> becoming <code>n</code>) cannot be found reliably, so it stays, and I list it as a known limitation.</li>
+    <li><b>Conversations ending on an unanswered user turn</b> (<span data-k="derived.format.trailing_user_trimmed"></span>), trimmed.</li>
+    <li><b>Null turns</b> in Anudesh (<span data-k="stages.extract.removed_total"></span> rows).</li>
+    <li><b>Licence of model outputs.</b> CC-BY-4.0 on the dataset does not settle what you may do with Llama-2 outputs. Recorded in the
+    manifest's terms note.</li>
+  </ul>
+</section>
+
+<section id="stats">
+  <h2>6. Final numbers</h2>
+  <div class="panel table-wrap">
+    <table>
+      <thead><tr><th></th><th class="num">Glaive</th><th class="num">Anudesh</th><th class="num">Total</th></tr></thead>
+      <tbody>
+        <tr><td>Conversations in</td><td class="num" data-k="by_source.glaive.raw_docs"></td><td class="num" data-k="by_source.anudesh.raw_docs"></td><td class="num" data-k="totals.raw_docs"></td></tr>
+        <tr><td>Conversations out</td><td class="num" data-k="by_source.glaive.final_docs"></td><td class="num" data-k="by_source.anudesh.final_docs"></td><td class="num" data-k="totals.final_docs"></td></tr>
+        <tr><td>Tokens in</td><td class="num" data-k="by_source.glaive.raw_tokens"></td><td class="num" data-k="by_source.anudesh.raw_tokens"></td><td class="num" data-k="totals.raw_tokens"></td></tr>
+        <tr><td>Tokens out</td><td class="num" data-k="by_source.glaive.final_tokens"></td><td class="num" data-k="by_source.anudesh.final_tokens"></td><td class="num" data-k="totals.final_tokens"></td></tr>
+        <tr><td>Tokens kept</td><td class="num" data-k="by_source.glaive.tokens_retained_pct" data-fmt="pct"></td><td class="num" data-k="by_source.anudesh.tokens_retained_pct" data-fmt="pct"></td><td class="num" data-k="totals.tokens_retained_pct" data-fmt="pct"></td></tr>
+        <tr><td>Removed: malformed / null (extract)</td><td class="num" data-k="stages.extract.removed_glaive"></td><td class="num" data-k="stages.extract.removed_anudesh"></td><td class="num" data-k="stages.extract.removed_total"></td></tr>
+        <tr><td>Removed: corrupt format</td><td class="num" data-k="stages.format.removed_glaive"></td><td class="num" data-k="stages.format.removed_anudesh"></td><td class="num" data-k="stages.format.removed_total"></td></tr>
+        <tr><td>Removed: language</td><td class="num" data-k="stages.langid.removed_glaive"></td><td class="num" data-k="stages.langid.removed_anudesh"></td><td class="num" data-k="stages.langid.removed_total"></td></tr>
+        <tr><td>Removed: quality</td><td class="num" data-k="stages.quality.removed_glaive"></td><td class="num" data-k="stages.quality.removed_anudesh"></td><td class="num" data-k="stages.quality.removed_total"></td></tr>
+        <tr><td>Removed: exact duplicates</td><td class="num" data-k="derived.dedup.exact_removed_glaive"></td><td class="num" data-k="derived.dedup.exact_removed_anudesh"></td><td class="num" data-k="derived.dedup.exact_removed"></td></tr>
+        <tr><td>Removed: near duplicates</td><td class="num" data-k="derived.dedup.near_removed_glaive"></td><td class="num" data-k="derived.dedup.near_removed_anudesh"></td><td class="num" data-k="derived.dedup.near_removed"></td></tr>
+        <tr><td>Removed: eval overlap</td><td class="num" data-k="stages.decontam.removed_glaive"></td><td class="num" data-k="stages.decontam.removed_anudesh"></td><td class="num" data-k="stages.decontam.removed_total"></td></tr>
+        <tr><td>Changed: normalization</td><td class="num" data-k="stages.normalize.modified_glaive"></td><td class="num" data-k="stages.normalize.modified_anudesh"></td><td class="num" data-k="stages.normalize.modified_total"></td></tr>
+        <tr><td>Changed: PII masked</td><td class="num" data-k="stages.pii.modified_glaive"></td><td class="num" data-k="stages.pii.modified_anudesh"></td><td class="num" data-k="stages.pii.modified_total"></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small">Corpus id <code data-k="manifest.corpus_id"></code>. Shards <code data-k="manifest.shards.0.shard_id"></code> and
+  <code data-k="manifest.shards.1.shard_id"></code>.</p>
+</section>
+
+<section id="takeaway">
+  <h2>7. What surprised me</h2>
+  <p id="takeaway-1">I expected normalization and PII to be the busy stages. On this data, deduplication did most of the
+  removing: Glaive's generator kept producing the same few scenarios, and one refusal appears
+  <span data-k="dedup.largest_cluster"></span> times with only the last clause changed. On the other hand, the most damaging defect
+  in Glaive did not remove anything at all. It was the tool-call JSON, broken in <span data-k="derived.format.fc_invalid_upstream_pct" data-fmt="pct"></span>
+  of function calls, which no filter would catch because the text looks fine.</p>
+  <p id="takeaway-2">The other surprise was how strong the English bias of the heuristic rules was. I ran the heuristic rules expecting to tune
+  them a bit; instead they marked almost every Telugu, Hindi and Bengali answer as junk because those answers do not contain
+  "the" or "and". If I had used them as the filter, the Indic half of this corpus would have disappeared while the English half
+  looked fine. And the decontamination scan's 13-gram hits looked like contamination until I read them.</p>
+</section>
+
+<section id="checks">
+  <h2>8. How I checked this</h2>
+  <ul class="plain">
+    <li><b>Unit tests:</b> <span data-k="checks.tests"></span> (normalization incl. joiner preservation, ghost-marker parsing,
+    MinHash vs true Jaccard, LSH formula, PII patterns, language codes, decontam coverage, manifest gating).</li>
+    <li><b>Statistics recomputed from the files:</b> <span data-k="checks.stats"></span>. Every input row is either in a cleaned shard
+    or in exactly one quarantine file, the manifest hashes match the files, and token counts recomputed from scratch match.</li>
+    <li><b>Determinism:</b> the whole pipeline was run a second time; corpus id, shard hashes, token counts and every stage counter:
+    <span data-k="checks.determinism"></span>.</li>
+    <li><b>False positives:</b> an LLM reviewer (Claude Sonnet) read a random sample of up to 25 removals for every removal reason
+    (<span data-k="false_positive_audit.records_reviewed"></span> conversations), plus
+    <span data-k="false_positive_audit.pii_sample.masked_values_reviewed"></span> masked PII values. I re-checked the cases that
+    mattered. The review was done on an earlier run, and the table shows what I changed because of it.</li>
+  </ul>
+  <div class="panel table-wrap" id="fp-table"></div>
+  <p class="small">Commands to reproduce are in the repository's <code>docs/REPRODUCE.md</code>. The raw and cleaned conversations are
+  not published here; the examples on this page are short excerpts with PII masked.</p>
+</section>
+</main>
+<footer>Chat data cleaning · built from <code data-k="corpus_id"></code></footer>
+<script src="app.js"></script>
+</body>
+</html>

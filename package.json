@@ -1,0 +1,9 @@
+{
+  "name": "chat-data-cleaning",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node site/build.mjs",
+    "serve": "node site/serve.mjs"
+  }
+}

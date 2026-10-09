@@ -1,0 +1,14 @@
+{
+  "stage_seconds": {
+    "extract": 84.7,
+    "normalize": 160.3,
+    "format": 122.7,
+    "langid": 197.9,
+    "quality": 167.6,
+    "dedup": 143.9,
+    "pii": 129.9,
+    "decontam": 226.2,
+    "manifest": 12.3
+  },
+  "finished": "2026-10-01T20:31:48"
+}

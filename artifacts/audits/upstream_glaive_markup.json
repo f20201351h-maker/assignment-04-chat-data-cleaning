@@ -1,0 +1,10 @@
+{
+  "file": "data/raw/glaive-function-calling-v2.json",
+  "rows": 112960,
+  "rows_containing_any_backslash": 152,
+  "backslashes_total": 600,
+  "rows_with_code_block": 12552,
+  "rows_with_code_block_and_any_backslash": 1,
+  "rows_with_2plus_backslashless_latex_commands": 830,
+  "rows_with_intact_backslash_begin_or_section": 0
+}

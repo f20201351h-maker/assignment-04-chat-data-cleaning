@@ -1,0 +1,742 @@
+{
+  "corpus_id": "corpus_8437cab97b01e8b8",
+  "stages": [
+    {
+      "stage": "extract",
+      "docs_in": {
+        "glaive": 112960,
+        "anudesh": 36820
+      },
+      "docs_out": {
+        "glaive": 112960,
+        "anudesh": 36483
+      },
+      "removed": {
+        "anudesh": {
+          "null_or_empty_turn": 337
+        }
+      },
+      "removed_tokens": {
+        "anudesh": {
+          "null_or_empty_turn": 30127
+        }
+      },
+      "modified_docs": {},
+      "counters": {},
+      "tokens_in": {
+        "glaive": 55906638,
+        "anudesh": 35966204
+      },
+      "tokens_out": {
+        "glaive": 55906638,
+        "anudesh": 35936077
+      }
+    },
+    {
+      "stage": "normalize",
+      "docs_in": {
+        "glaive": 112960,
+        "anudesh": 36483
+      },
+      "docs_out": {
+        "glaive": 112960,
+        "anudesh": 36483
+      },
+      "removed": {},
+      "removed_tokens": {},
+      "modified_docs": {
+        "glaive": 112960,
+        "anudesh": 18857
+      },
+      "counters": {
+        "glaive": {
+          "edge_ws": 189325,
+          "blank_lines_collapsed": 79779,
+          "trailing_ws": 16908,
+          "space_runs_collapsed": 234,
+          "nfc_changed": 2,
+          "docs_with_invisible_or_encoding_fix": 5,
+          "odd_space": 7,
+          "zwj_kept_emoji": 9,
+          "control_char": 31
+        },
+        "anudesh": {
+          "trailing_ws": 4306,
+          "space_runs_collapsed": 962,
+          "edge_ws": 15876,
+          "zwnj_kept_indic": 2102,
+          "zwj_kept_indic": 476,
+          "nfc_changed": 278,
+          "docs_with_invisible_or_encoding_fix": 297,
+          "blank_lines_collapsed": 10,
+          "odd_space": 3,
+          "zwj_removed_stray": 11,
+          "zero_width_space": 58,
+          "bom": 16,
+          "zwnj_removed_stray": 39
+        }
+      },
+      "tokens_in": {
+        "glaive": 55906638,
+        "anudesh": 35936077
+      },
+      "tokens_out": {
+        "glaive": 55749763,
+        "anudesh": 35906517
+      }
+    },
+    {
+      "stage": "format",
+      "docs_in": {
+        "glaive": 112960,
+        "anudesh": 36483
+      },
+      "docs_out": {
+        "glaive": 112508,
+        "anudesh": 36483
+      },
+      "removed": {
+        "glaive": {
+          "tool_response_truncated": 401,
+          "residual_ghost_marker_in_content": 23,
+          "tool_response_invalid_json": 20,
+          "unrecoverable_function_call": 8
+        }
+      },
+      "removed_tokens": {
+        "glaive": {
+          "tool_response_truncated": 100124,
+          "residual_ghost_marker_in_content": 15859,
+          "tool_response_invalid_json": 8353,
+          "unrecoverable_function_call": 2395
+        }
+      },
+      "modified_docs": {
+        "glaive": 1598
+      },
+      "counters": {
+        "glaive": {
+          "marker_SYSTEM": 112960,
+          "marker_USER": 266596,
+          "marker_ASSISTANT": 356854,
+          "marker_endoftext": 356878,
+          "marker_functioncall": 83834,
+          "fc_repaired_single_quoted_args": 80904,
+          "marker_FUNCTION_RESPONSE": 83990,
+          "tool_response_invalid_json": 447,
+          "fc_valid_as_is": 2922,
+          "trailing_unanswered_user_turn_trimmed": 1598,
+          "fc_repaired_escaped_apostrophe": 120,
+          "fc_unrecoverable": 8,
+          "functioncall_after_preamble": 4,
+          "marker_and_format_tokens_saved": 2936827
+        },
+        "anudesh": {
+          "marker_and_format_tokens_saved": -111250
+        }
+      },
+      "tokens_in": {
+        "glaive": 55749763,
+        "anudesh": 35906517
+      },
+      "tokens_out": {
+        "glaive": 52686205,
+        "anudesh": 36017767
+      }
+    },
+    {
+      "stage": "langid",
+      "docs_in": {
+        "glaive": 112508,
+        "anudesh": 36483
+      },
+      "docs_out": {
+        "glaive": 112489,
+        "anudesh": 36451
+      },
+      "removed": {
+        "glaive": {
+          "assistant_language_outside_source_claim": 17,
+          "user_language_outside_source_claim": 2
+        },
+        "anudesh": {
+          "user_language_outside_source_claim": 5,
+          "assistant_language_outside_source_claim": 27
+        }
+      },
+      "removed_tokens": {
+        "glaive": {
+          "assistant_language_outside_source_claim": 17875,
+          "user_language_outside_source_claim": 1132
+        },
+        "anudesh": {
+          "user_language_outside_source_claim": 2802,
+          "assistant_language_outside_source_claim": 6051
+        }
+      },
+      "modified_docs": {},
+      "counters": {
+        "glaive": {
+          "user_ok": 112396,
+          "user_low_conf": 79,
+          "user_too_short": 33,
+          "code_switched_kept": 1
+        },
+        "anudesh": {
+          "user_ok": 32542,
+          "user_low_conf": 1430,
+          "user_too_short": 2153,
+          "user_mixed": 358,
+          "code_switched_kept": 682,
+          "response_language_differs_flagged": 41,
+          "lang_switch_translation_request_kept": 2
+        }
+      },
+      "tokens_in": {
+        "glaive": 52686205,
+        "anudesh": 36017767
+      },
+      "tokens_out": {
+        "glaive": 52667198,
+        "anudesh": 36008914
+      }
+    },
+    {
+      "stage": "quality",
+      "docs_in": {
+        "glaive": 112489,
+        "anudesh": 36451
+      },
+      "docs_out": {
+        "glaive": 111793,
+        "anudesh": 36139
+      },
+      "removed": {
+        "glaive": {
+          "latex_backslashes_stripped": 691,
+          "empty_assistant_turn": 2,
+          "looping_output": 3
+        },
+        "anudesh": {
+          "greeting_only_prompt": 296,
+          "looping_output": 16
+        }
+      },
+      "removed_tokens": {
+        "glaive": {
+          "latex_backslashes_stripped": 696074,
+          "empty_assistant_turn": 1207,
+          "looping_output": 9773
+        },
+        "anudesh": {
+          "greeting_only_prompt": 3914,
+          "looping_output": 22213
+        }
+      },
+      "modified_docs": {},
+      "counters": {
+        "glaive": {
+          "widget4_fail_wordcount": 57470,
+          "widget4_fail_wordcount__latin_or_other": 57470,
+          "widget4_would_drop": 62603,
+          "widget4_would_drop__latin_or_other": 62603,
+          "docs__latin_or_other": 112489,
+          "widget4_fail_termpunc": 4475,
+          "widget4_fail_termpunc__latin_or_other": 4475,
+          "widget4_fail_symratio": 7454,
+          "widget4_fail_symratio__latin_or_other": 7454,
+          "docs_with_code_block": 12208,
+          "widget4_fail_stopwords": 8214,
+          "widget4_fail_stopwords__latin_or_other": 8214,
+          "widget4_fail_duplines": 261,
+          "widget4_fail_duplines__latin_or_other": 261,
+          "widget4_fail_meanlen": 75,
+          "widget4_fail_meanlen__latin_or_other": 75,
+          "widget4_fail_bullets": 2,
+          "widget4_fail_bullets__latin_or_other": 2,
+          "widget4_fail_repeat": 40,
+          "widget4_fail_repeat__latin_or_other": 40,
+          "widget4_fail_ellipsis": 6,
+          "widget4_fail_ellipsis__latin_or_other": 6
+        },
+        "anudesh": {
+          "docs__latin_or_other": 13870,
+          "docs_with_code_block": 231,
+          "widget4_fail_termpunc": 1410,
+          "widget4_fail_termpunc__latin_or_other": 803,
+          "widget4_would_drop": 25199,
+          "widget4_would_drop__latin_or_other": 2924,
+          "widget4_fail_stopwords": 23480,
+          "widget4_fail_stopwords__indic": 22203,
+          "widget4_would_drop__indic": 22275,
+          "docs__indic": 22581,
+          "widget4_fail_wordcount": 7594,
+          "widget4_fail_wordcount__latin_or_other": 1850,
+          "widget4_fail_wordcount__indic": 5744,
+          "widget4_fail_stopwords__latin_or_other": 1277,
+          "widget4_fail_symratio": 153,
+          "widget4_fail_symratio__latin_or_other": 96,
+          "widget4_fail_termpunc__indic": 607,
+          "widget4_fail_repeat": 9,
+          "widget4_fail_repeat__latin_or_other": 5,
+          "widget4_fail_duplines": 99,
+          "widget4_fail_duplines__latin_or_other": 94,
+          "widget4_fail_meanlen": 32,
+          "widget4_fail_meanlen__latin_or_other": 15,
+          "docs_with_code_block_and_any_backslash": 18,
+          "widget4_fail_meanlen__indic": 17,
+          "widget4_fail_duplines__indic": 5,
+          "widget4_fail_bullets": 8,
+          "widget4_fail_bullets__indic": 2,
+          "widget4_fail_symratio__indic": 57,
+          "widget4_fail_bullets__latin_or_other": 6,
+          "widget4_fail_ellipsis": 4,
+          "widget4_fail_ellipsis__latin_or_other": 2,
+          "widget4_fail_repeat__indic": 4,
+          "widget4_fail_ellipsis__indic": 2
+        }
+      },
+      "tokens_in": {
+        "glaive": 52667198,
+        "anudesh": 36008914
+      },
+      "tokens_out": {
+        "glaive": 51960144,
+        "anudesh": 35982787
+      }
+    },
+    {
+      "stage": "dedup",
+      "docs_in": {
+        "glaive": 111793,
+        "anudesh": 36139
+      },
+      "docs_out": {
+        "glaive": 73553,
+        "anudesh": 35819
+      },
+      "removed": {
+        "glaive": {
+          "exact_duplicate": 9173,
+          "near_duplicate": 29067
+        },
+        "anudesh": {
+          "exact_duplicate": 193,
+          "near_duplicate": 127
+        }
+      },
+      "removed_tokens": {
+        "glaive": {
+          "exact_duplicate": 2312172,
+          "near_duplicate": 9011371
+        },
+        "anudesh": {
+          "exact_duplicate": 40025,
+          "near_duplicate": 43945
+        }
+      },
+      "modified_docs": {},
+      "counters": {},
+      "tokens_in": {
+        "glaive": 51960144,
+        "anudesh": 35982787
+      },
+      "tokens_out": {
+        "glaive": 40636601,
+        "anudesh": 35898817
+      }
+    },
+    {
+      "stage": "pii",
+      "docs_in": {
+        "glaive": 73553,
+        "anudesh": 35819
+      },
+      "docs_out": {
+        "glaive": 73552,
+        "anudesh": 35819
+      },
+      "removed": {
+        "glaive": {
+          "exact_duplicate_after_masking": 1
+        }
+      },
+      "removed_tokens": {
+        "glaive": {
+          "exact_duplicate_after_masking": 125
+        }
+      },
+      "modified_docs": {
+        "glaive": 604,
+        "anudesh": 10
+      },
+      "counters": {
+        "glaive": {
+          "email_placeholder_kept": 2557,
+          "email": 1215,
+          "ip_nonpublic_kept": 87,
+          "phone": 423,
+          "ip": 12,
+          "phone_shape_rejected": 2
+        },
+        "anudesh": {
+          "ip_nonpublic_kept": 14,
+          "email_placeholder_kept": 18,
+          "email": 5,
+          "phone": 20
+        }
+      },
+      "tokens_in": {
+        "glaive": 40636601,
+        "anudesh": 35898817
+      },
+      "tokens_out": {
+        "glaive": 40628181,
+        "anudesh": 35898527
+      }
+    },
+    {
+      "stage": "decontam",
+      "docs_in": {
+        "glaive": 73552,
+        "anudesh": 35819
+      },
+      "docs_out": {
+        "glaive": 73539,
+        "anudesh": 35819
+      },
+      "removed": {
+        "glaive": {
+          "eval_overlap": 13
+        }
+      },
+      "removed_tokens": {
+        "glaive": {
+          "eval_overlap": 11411
+        }
+      },
+      "modified_docs": {},
+      "counters": {},
+      "tokens_in": {
+        "glaive": 40628181,
+        "anudesh": 35898527
+      },
+      "tokens_out": {
+        "glaive": 40616770,
+        "anudesh": 35898527
+      }
+    },
+    {
+      "stage": "manifest",
+      "docs_in": {
+        "glaive": 73539,
+        "anudesh": 35819
+      },
+      "docs_out": {
+        "glaive": 73539,
+        "anudesh": 35819
+      },
+      "removed": {},
+      "removed_tokens": {},
+      "modified_docs": {},
+      "counters": {},
+      "tokens_in": {
+        "glaive": 40616770,
+        "anudesh": 35898527
+      },
+      "tokens_out": {
+        "glaive": 40616770,
+        "anudesh": 35898527
+      }
+    }
+  ],
+  "dedup": {
+    "near_removed_applied_rule": {
+      "glaive": 29067,
+      "anudesh": 127
+    },
+    "near_removed_if_union_find_clusters": {
+      "glaive": 33583,
+      "anudesh": 133
+    },
+    "exact_duplicate_groups": 3349,
+    "exact_cross_source": 0,
+    "near_candidate_pairs": 1101812,
+    "near_verified_pairs": 465178,
+    "near_rejected_pairs": 636634,
+    "near_clusters": 4477,
+    "near_cluster_size_hist": {
+      "2": 2134,
+      "3": 715,
+      "4": 390,
+      "5": 239,
+      "6": 153,
+      "7": 104,
+      "8": 78,
+      "9": 73,
+      "10": 58,
+      "11": 49,
+      "12": 28,
+      "13": 36,
+      "14": 27,
+      "15": 29,
+      "16": 21,
+      "17": 21,
+      "18": 19,
+      "19": 16,
+      "20": 12,
+      "21": 13,
+      "22": 12,
+      "23": 8,
+      "24": 10,
+      "25": 10,
+      "26": 7,
+      "27": 2,
+      "28": 11,
+      "29": 3,
+      "30": 5,
+      "31": 14,
+      "32": 5,
+      "33": 7,
+      "34": 5,
+      "35": 4,
+      "36": 5,
+      "37": 8,
+      "38": 6,
+      "39": 4,
+      "40": 1,
+      "42": 2,
+      "43": 3,
+      "44": 3,
+      "45": 3,
+      "46": 2,
+      "47": 2,
+      "48": 1,
+      "49": 4,
+      "50": 115
+    },
+    "near_clusters_spanning_sources": 0,
+    "near_removed_if_each_source_deduped_alone": {
+      "glaive": 29067,
+      "anudesh": 127
+    },
+    "lsh_threshold_formula": 0.719,
+    "largest_cluster": 1120,
+    "verified_jaccard_hist": {
+      "0.00-0.50": 0,
+      "0.50-0.60": 0,
+      "0.60-0.70": 0,
+      "0.70-0.75": 0,
+      "0.75-0.80": 123668,
+      "0.80-0.85": 109186,
+      "0.85-0.90": 55251,
+      "0.90-0.95": 21885,
+      "0.95-1.00": 155188
+    },
+    "rejected_jaccard_hist": {
+      "0.00-0.50": 82327,
+      "0.50-0.60": 146886,
+      "0.60-0.70": 263774,
+      "0.70-0.75": 143647,
+      "0.75-0.80": 0,
+      "0.80-0.85": 0,
+      "0.85-0.90": 0,
+      "0.90-0.95": 0,
+      "0.95-1.00": 0
+    }
+  },
+  "decontam": {
+    "items_indexed": {
+      "gsm8k": 1319,
+      "math500": 487,
+      "humaneval": 164,
+      "mmlu": 14038
+    },
+    "items_skipped_too_short": {
+      "math500": 13,
+      "mmlu": 4
+    },
+    "fingerprints": 833780,
+    "ngram": 13,
+    "docs_with_overlap_by_benchmark": {
+      "math500": 5,
+      "mmlu": 23,
+      "humaneval": 1
+    },
+    "hits": [
+      {
+        "source": "glaive",
+        "src_index": 7106,
+        "benchmark": "math500",
+        "item": 153,
+        "shared_13grams": 2,
+        "item_coverage": 0.044
+      },
+      {
+        "source": "glaive",
+        "src_index": 17870,
+        "benchmark": "mmlu",
+        "item": 3828,
+        "shared_13grams": 1,
+        "item_coverage": 0.036
+      },
+      {
+        "source": "glaive",
+        "src_index": 21973,
+        "benchmark": "mmlu",
+        "item": 5471,
+        "shared_13grams": 1,
+        "item_coverage": 0.024
+      },
+      {
+        "source": "glaive",
+        "src_index": 47227,
+        "benchmark": "mmlu",
+        "item": 5882,
+        "shared_13grams": 48,
+        "item_coverage": 0.212
+      },
+      {
+        "source": "glaive",
+        "src_index": 53561,
+        "benchmark": "math500",
+        "item": 153,
+        "shared_13grams": 2,
+        "item_coverage": 0.044
+      },
+      {
+        "source": "glaive",
+        "src_index": 62279,
+        "benchmark": "mmlu",
+        "item": 5882,
+        "shared_13grams": 12,
+        "item_coverage": 0.053
+      },
+      {
+        "source": "glaive",
+        "src_index": 66049,
+        "benchmark": "mmlu",
+        "item": 5882,
+        "shared_13grams": 12,
+        "item_coverage": 0.053
+      },
+      {
+        "source": "glaive",
+        "src_index": 82452,
+        "benchmark": "mmlu",
+        "item": 5882,
+        "shared_13grams": 12,
+        "item_coverage": 0.053
+      },
+      {
+        "source": "glaive",
+        "src_index": 86288,
+        "benchmark": "math500",
+        "item": 167,
+        "shared_13grams": 4,
+        "item_coverage": 0.089
+      },
+      {
+        "source": "glaive",
+        "src_index": 86825,
+        "benchmark": "humaneval",
+        "item": 78,
+        "shared_13grams": 4,
+        "item_coverage": 0.026
+      },
+      {
+        "source": "glaive",
+        "src_index": 93244,
+        "benchmark": "math500",
+        "item": 167,
+        "shared_13grams": 2,
+        "item_coverage": 0.044
+      },
+      {
+        "source": "glaive",
+        "src_index": 109314,
+        "benchmark": "math500",
+        "item": 421,
+        "shared_13grams": 2,
+        "item_coverage": 0.059
+      },
+      {
+        "source": "glaive",
+        "src_index": 110847,
+        "benchmark": "mmlu",
+        "item": 5882,
+        "shared_13grams": 58,
+        "item_coverage": 0.257
+      }
+    ],
+    "max_item_coverage": 0.257
+  },
+  "config": {
+    "run": {
+      "seed": 1,
+      "contributor": "ERA V5 student (Assignment 4)"
+    },
+    "sources": [
+      {
+        "shard": "glaive",
+        "kind": "glaive",
+        "path": "data/raw/glaive-function-calling-v2.json",
+        "claimed_languages": [
+          "en"
+        ]
+      },
+      {
+        "shard": "anudesh",
+        "kind": "pairs",
+        "path": "data/raw/anudesh1.parquet",
+        "claimed_languages": [
+          "as",
+          "bn",
+          "gu",
+          "en",
+          "hi",
+          "kn",
+          "ml",
+          "mr",
+          "ne",
+          "or",
+          "pa",
+          "sa",
+          "ta",
+          "te",
+          "ur"
+        ]
+      }
+    ],
+    "normalize": {
+      "unescape_html": true
+    },
+    "langid": {
+      "min_conf": 0.8,
+      "min_letters": 20,
+      "quarantine_outside_claim": true,
+      "quarantine_prompt_response_mismatch": false,
+      "translation_request_pattern": "(?i)translat|अनुवाद|ভাষান্তর|অনুবাদ|అనువ|மொழிபெயர்|ಅನುವಾದ|ഭാഷാന്തര|വിവർത്തന|ભાષાંતર|ਅਨੁਵਾਦ|भाषांतर|ترجمہ|ترجمه"
+    },
+    "quality": {
+      "greeting_max_words": 3,
+      "loop_min_repeats": 15
+    },
+    "dedup": {
+      "shingle_words": 5,
+      "num_perm": 112,
+      "bands": 14,
+      "rows": 8,
+      "jaccard_threshold": 0.75,
+      "minhash_seed": 1
+    },
+    "decontam": {
+      "ngram": 13,
+      "min_short_words": 8
+    },
+    "tokens": {
+      "repo": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca"
+    }
+  }
+}

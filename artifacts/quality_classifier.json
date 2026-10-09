@@ -1,0 +1,84 @@
+{
+  "labeller": "Claude Sonnet subagents, rubric in docs/notes/labelling_rubric.md",
+  "labelled": 599,
+  "labelled_missing_or_unparsed": 1,
+  "label_histogram_0to5": {
+    "0": 1,
+    "1": 58,
+    "2": 106,
+    "3": 124,
+    "4": 173,
+    "5": 137
+  },
+  "keep_if_score_at_least": 3,
+  "train_n": 453,
+  "test_n": 146,
+  "train_keep_rate": 0.706,
+  "test_auc": 0.798,
+  "test_accuracy": 0.733,
+  "majority_baseline_accuracy": 0.781,
+  "test_by_group": {
+    "anudesh/indic": {
+      "n": 41,
+      "label_keep": 24,
+      "pred_keep": 2
+    },
+    "anudesh/latin_or_other": {
+      "n": 32,
+      "label_keep": 23,
+      "pred_keep": 32
+    },
+    "glaive/latin_or_other": {
+      "n": 73,
+      "label_keep": 67,
+      "pred_keep": 73
+    }
+  },
+  "score_distribution_all_docs": {
+    "anudesh/indic": {
+      "n": 21866,
+      "below_0.3": 2461,
+      "below_0.5": 20335
+    },
+    "anudesh/latin_or_other": {
+      "n": 13953,
+      "below_0.5": 313
+    },
+    "glaive/latin_or_other": {
+      "n": 73539,
+      "below_0.5": 7
+    }
+  },
+  "model": "logistic regression on hashed char 2-4-grams (2^18 dims), numpy, 300 epochs, l2=1e-4",
+  "label_keep_rate_by_script_all_labels": {
+    "indic": {
+      "n": 172,
+      "keep_rate": 0.419
+    },
+    "latin_or_other": {
+      "n": 427,
+      "keep_rate": 0.848
+    }
+  },
+  "test_within_group": {
+    "indic": {
+      "test_n": 41,
+      "label_keep_rate": 0.585,
+      "pred_keep_rate": 0.049,
+      "within_group_auc": 0.623
+    },
+    "latin_or_other": {
+      "test_n": 105,
+      "label_keep_rate": 0.857,
+      "pred_keep_rate": 1.0,
+      "within_group_auc": 0.835
+    }
+  },
+  "indic_only_model": {
+    "train_n": 131,
+    "test_n": 41,
+    "test_auc": 0.848
+  },
+  "used_to_remove_documents": false,
+  "decision": "Not used as a filter. The one model for both scripts predicts almost every Indic conversation as low quality, far below the LLM labels' own keep rate for Indic. A per-script model ranks better but is trained on too few Indic labels to delete data with. Scores are kept as an audit."
+}

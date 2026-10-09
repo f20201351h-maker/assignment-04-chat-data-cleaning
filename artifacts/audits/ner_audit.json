@@ -1,0 +1,39 @@
+{
+  "conversations": 150,
+  "with_any_name": 31,
+  "by_source": {
+    "glaive": {
+      "public": 14,
+      "fictional": 7,
+      "private": 0,
+      "unclear": 0,
+      "likely_false_positive": 12,
+      "convs_with_names": 13
+    },
+    "anudesh": {
+      "public": 38,
+      "fictional": 6,
+      "private": 0,
+      "unclear": 1,
+      "likely_false_positive": 22,
+      "convs_with_names": 18
+    }
+  },
+  "private_examples": [],
+  "unclear_examples": [
+    {
+      "id": "d_a080024e5254939f",
+      "why": "user asks about an obscure two-word person name; model cannot identify them"
+    }
+  ],
+  "false_positive_patterns": [
+    "Name-like brand or product names (Asana, Tipa, Tesla, Akamai) flagged as people by capitalisation heuristics.",
+    "Indic common nouns that are also given names: basil (tulsi), river (ganga), omniscient (sarvajna), romanised 'amar' meaning my.",
+    "Places, temples, ghats, mosques and airports whose names embed a person's or deity's name.",
+    "Festival, month and folk-art names derived from names: Kartik, Chandan, Vishu, Mohiniyattam, Somana Kunita.",
+    "Assistant persona 'Anudesh' used in greetings, and 'AI' transliterated into a person-like word.",
+    "Model and game titles with name-like tokens: RoBERTa, Half-Life Alyx, Luna Moth."
+  ],
+  "notes": "Read by hand, no NER library. No private individuals found. Eponyms (theorems, conjectures) and deity names counted as public. Source text is truncated at ~1500 chars per turn. FP counts are conservative: only name-like tokens, not all places or brands. Example-domain emails (example.com) were NOT masked and carry a placeholder name.",
+  "method": "LLM (Claude Sonnet) read 150 seeded-random cleaned conversations (75 per shard) and marked each person-name mention; spot-checked by the lead agent"
+}

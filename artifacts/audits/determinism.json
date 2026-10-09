@@ -1,0 +1,135 @@
+{
+  "all_identical": true,
+  "checks": [
+    {
+      "check": "corpus_id",
+      "identical": true,
+      "first": "corpus_8437cab97b01e8b8"
+    },
+    {
+      "check": "glaive-function-calling-v2.shard_id",
+      "identical": true,
+      "first": "shard_68191df5e149"
+    },
+    {
+      "check": "glaive-function-calling-v2.content_sha256",
+      "identical": true,
+      "first": "68191df5e14970109d00f921214b199e6b4fdf6acb3a7a77baa637f70cc7da5f"
+    },
+    {
+      "check": "glaive-function-calling-v2.docs",
+      "identical": true,
+      "first": 73539
+    },
+    {
+      "check": "glaive-function-calling-v2.token_count",
+      "identical": true,
+      "first": 40616770
+    },
+    {
+      "check": "glaive-function-calling-v2.languages",
+      "identical": true,
+      "first": null
+    },
+    {
+      "check": "glaive-function-calling-v2.config_sha256",
+      "identical": true,
+      "first": "215872c539ea5722ea3426bace2c5a37d2af8c6bb6f7a9f70e81e253a24f431b"
+    },
+    {
+      "check": "glaive-function-calling-v2.cleaning_scripts",
+      "identical": true,
+      "first": null
+    },
+    {
+      "check": "indic-align.shard_id",
+      "identical": true,
+      "first": "shard_6aefac17acda"
+    },
+    {
+      "check": "indic-align.content_sha256",
+      "identical": true,
+      "first": "6aefac17acda92f5d26070980805d08fe5d8e555b457a1f26525a213cd693a98"
+    },
+    {
+      "check": "indic-align.docs",
+      "identical": true,
+      "first": 35819
+    },
+    {
+      "check": "indic-align.token_count",
+      "identical": true,
+      "first": 35898527
+    },
+    {
+      "check": "indic-align.languages",
+      "identical": true,
+      "first": null
+    },
+    {
+      "check": "indic-align.config_sha256",
+      "identical": true,
+      "first": "215872c539ea5722ea3426bace2c5a37d2af8c6bb6f7a9f70e81e253a24f431b"
+    },
+    {
+      "check": "indic-align.cleaning_scripts",
+      "identical": true,
+      "first": null
+    },
+    {
+      "check": "stage extract counters",
+      "identical": true,
+      "first": null
+    },
+    {
+      "check": "stage normalize counters",
+      "identical": true,
+      "first": null
+    },
+    {
+      "check": "stage format counters",
+      "identical": true,
+      "first": null
+    },
+    {
+      "check": "stage langid counters",
+      "identical": true,
+      "first": null
+    },
+    {
+      "check": "stage quality counters",
+      "identical": true,
+      "first": null
+    },
+    {
+      "check": "stage dedup counters",
+      "identical": true,
+      "first": null
+    },
+    {
+      "check": "stage pii counters",
+      "identical": true,
+      "first": null
+    },
+    {
+      "check": "stage decontam counters",
+      "identical": true,
+      "first": null
+    },
+    {
+      "check": "stage manifest counters",
+      "identical": true,
+      "first": null
+    },
+    {
+      "check": "dedup info",
+      "identical": true,
+      "first": null
+    },
+    {
+      "check": "decontam info",
+      "identical": true,
+      "first": null
+    }
+  ]
+}

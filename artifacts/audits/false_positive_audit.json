@@ -1,0 +1,174 @@
+{
+  "reviewed_run": "run 2 (before the rule changes)",
+  "method": "random sample of up to 25 removals per (stage, reason), read by a Claude Sonnet reviewer; consequential cases re-checked by the lead agent",
+  "records_reviewed": 275,
+  "files": [
+    {
+      "file": "extract__null_or_empty_turn.jsonl",
+      "stage": "extract",
+      "reason": "null_or_empty_turn",
+      "sampled": 25,
+      "correct": 25,
+      "false_positive": 0,
+      "unclear": 0,
+      "action": "no change: no false positives in the sample"
+    },
+    {
+      "file": "format__tool_response_truncated.jsonl",
+      "stage": "format",
+      "reason": "tool_response_truncated",
+      "sampled": 25,
+      "correct": 25,
+      "false_positive": 0,
+      "unclear": 0,
+      "action": "no change: no false positives in the sample"
+    },
+    {
+      "file": "format__tool_response_invalid_json.jsonl",
+      "stage": "format",
+      "reason": "tool_response_invalid_json",
+      "sampled": 20,
+      "correct": 20,
+      "false_positive": 0,
+      "unclear": 0,
+      "action": "no change: no false positives in the sample"
+    },
+    {
+      "file": "format__unrecoverable_function_call.jsonl",
+      "stage": "format",
+      "reason": "unrecoverable_function_call",
+      "sampled": 9,
+      "correct": 8,
+      "false_positive": 1,
+      "unclear": 0,
+      "action": "repair added for a stray extra closing brace"
+    },
+    {
+      "file": "format__residual_ghost_marker_in_content.jsonl",
+      "stage": "format",
+      "reason": "residual_ghost_marker_in_content",
+      "sampled": 23,
+      "correct": 23,
+      "false_positive": 0,
+      "unclear": 0,
+      "action": "no change: no false positives in the sample"
+    },
+    {
+      "file": "langid__assistant_language_outside_source_claim.jsonl",
+      "stage": "langid",
+      "reason": "assistant_language_outside_source_claim",
+      "sampled": 25,
+      "correct": 20,
+      "false_positive": 0,
+      "unclear": 5,
+      "action": "kept: unclear cases are user-requested French/Spanish turns"
+    },
+    {
+      "file": "langid__user_language_outside_source_claim.jsonl",
+      "stage": "langid",
+      "reason": "user_language_outside_source_claim",
+      "sampled": 7,
+      "correct": 6,
+      "false_positive": 1,
+      "unclear": 0,
+      "action": "kept: one English chat quoting a French poem"
+    },
+    {
+      "file": "quality__greeting_only_prompt.jsonl",
+      "stage": "quality",
+      "reason": "greeting_only_prompt",
+      "sampled": 25,
+      "correct": 25,
+      "false_positive": 0,
+      "unclear": 0,
+      "action": "no change: no false positives in the sample"
+    },
+    {
+      "file": "quality__empty_assistant_turn.jsonl",
+      "stage": "quality",
+      "reason": "empty_assistant_turn",
+      "sampled": 2,
+      "correct": 2,
+      "false_positive": 0,
+      "unclear": 0,
+      "action": "no change: no false positives in the sample"
+    },
+    {
+      "file": "quality__degenerate_repetition.jsonl",
+      "stage": "quality",
+      "reason": "degenerate_repetition",
+      "sampled": 25,
+      "correct": 14,
+      "false_positive": 11,
+      "unclear": 0,
+      "action": "replaced by a looping-output detector that ignores tables, rule lines and pure digits"
+    },
+    {
+      "file": "quality__repeated_lines.jsonl",
+      "stage": "quality",
+      "reason": "repeated_lines",
+      "sampled": 25,
+      "correct": 3,
+      "false_positive": 20,
+      "unclear": 2,
+      "action": "rule dropped: mostly hit tables, meal plans and seating charts"
+    },
+    {
+      "file": "dedup__exact_duplicate.jsonl",
+      "stage": "dedup",
+      "reason": "exact_duplicate",
+      "sampled": 25,
+      "correct": 25,
+      "false_positive": 0,
+      "unclear": 0,
+      "action": "no change: no false positives in the sample"
+    },
+    {
+      "file": "dedup__near_duplicate.jsonl",
+      "stage": "dedup",
+      "reason": "near_duplicate",
+      "sampled": 25,
+      "correct": 22,
+      "false_positive": 3,
+      "unclear": 0,
+      "action": "kept: refusal templates that differ only in which tool they mention"
+    },
+    {
+      "file": "decontam__eval_overlap.jsonl",
+      "stage": "decontam",
+      "reason": "eval_overlap",
+      "sampled": 14,
+      "correct": 0,
+      "false_positive": 14,
+      "unclear": 0,
+      "action": "still removed (conservative), reported as phrase overlap; item coverage now recorded"
+    }
+  ],
+  "pii_sample": {
+    "masked_values_reviewed": 110,
+    "personal": 6,
+    "synthetic_realistic": 75,
+    "not_pii": 29,
+    "by_kind": {
+      "email": {
+        "n": 40,
+        "personal": 2,
+        "synthetic_realistic": 38,
+        "not_pii": 0
+      },
+      "phone": {
+        "n": 40,
+        "personal": 4,
+        "synthetic_realistic": 34,
+        "not_pii": 2
+      },
+      "ip": {
+        "n": 30,
+        "personal": 0,
+        "synthetic_realistic": 3,
+        "not_pii": 27
+      }
+    },
+    "action": "IPv6 now needs 3+ groups (Python slices and cloze markers were matching); version strings after 'Name/' are skipped"
+  }
+}

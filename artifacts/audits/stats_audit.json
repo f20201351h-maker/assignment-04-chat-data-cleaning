@@ -1,0 +1,200 @@
+{
+  "checks": [
+    {
+      "check": "raw glaive rows match extract docs_in",
+      "ok": true,
+      "detail": 112960
+    },
+    {
+      "check": "raw anudesh rows match extract docs_in",
+      "ok": true,
+      "detail": 36820
+    },
+    {
+      "check": "glaive: clean + quarantined == raw",
+      "ok": true,
+      "detail": "73539 + 39421 vs 112960"
+    },
+    {
+      "check": "anudesh: clean + quarantined == raw",
+      "ok": true,
+      "detail": "35819 + 1001 vs 36820"
+    },
+    {
+      "check": "no row quarantined twice",
+      "ok": true,
+      "detail": 0
+    },
+    {
+      "check": "no row both kept and quarantined",
+      "ok": true,
+      "detail": 0
+    },
+    {
+      "check": "stage extract: removed[null_or_empty_turn] == quarantine lines",
+      "ok": true,
+      "detail": "337 vs 337"
+    },
+    {
+      "check": "stage format: removed[tool_response_truncated] == quarantine lines",
+      "ok": true,
+      "detail": "401 vs 401"
+    },
+    {
+      "check": "stage format: removed[residual_ghost_marker_in_content] == quarantine lines",
+      "ok": true,
+      "detail": "23 vs 23"
+    },
+    {
+      "check": "stage format: removed[tool_response_invalid_json] == quarantine lines",
+      "ok": true,
+      "detail": "20 vs 20"
+    },
+    {
+      "check": "stage format: removed[unrecoverable_function_call] == quarantine lines",
+      "ok": true,
+      "detail": "8 vs 8"
+    },
+    {
+      "check": "stage langid: removed[assistant_language_outside_source_claim] == quarantine lines",
+      "ok": true,
+      "detail": "44 vs 44"
+    },
+    {
+      "check": "stage langid: removed[user_language_outside_source_claim] == quarantine lines",
+      "ok": true,
+      "detail": "7 vs 7"
+    },
+    {
+      "check": "stage quality: removed[latex_backslashes_stripped] == quarantine lines",
+      "ok": true,
+      "detail": "691 vs 691"
+    },
+    {
+      "check": "stage quality: removed[empty_assistant_turn] == quarantine lines",
+      "ok": true,
+      "detail": "2 vs 2"
+    },
+    {
+      "check": "stage quality: removed[looping_output] == quarantine lines",
+      "ok": true,
+      "detail": "19 vs 19"
+    },
+    {
+      "check": "stage quality: removed[greeting_only_prompt] == quarantine lines",
+      "ok": true,
+      "detail": "296 vs 296"
+    },
+    {
+      "check": "stage dedup: removed[exact_duplicate] == quarantine lines",
+      "ok": true,
+      "detail": "9366 vs 9366"
+    },
+    {
+      "check": "stage dedup: removed[near_duplicate] == quarantine lines",
+      "ok": true,
+      "detail": "29194 vs 29194"
+    },
+    {
+      "check": "stage pii: removed[exact_duplicate_after_masking] == quarantine lines",
+      "ok": true,
+      "detail": "1 vs 1"
+    },
+    {
+      "check": "stage decontam: removed[eval_overlap] == quarantine lines",
+      "ok": true,
+      "detail": "13 vs 13"
+    },
+    {
+      "check": "glaive: manifest content_sha256 matches file",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "check": "glaive: manifest docs == lines",
+      "ok": true,
+      "detail": 73539
+    },
+    {
+      "check": "glaive: manifest status clean",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "check": "glaive: doc ids unique",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "check": "glaive: recomputed tokens == manifest token_count",
+      "ok": true,
+      "detail": "40616770 vs 40616770"
+    },
+    {
+      "check": "anudesh: manifest content_sha256 matches file",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "check": "anudesh: manifest docs == lines",
+      "ok": true,
+      "detail": 35819
+    },
+    {
+      "check": "anudesh: manifest status clean",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "check": "anudesh: doc ids unique",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "check": "anudesh: recomputed tokens == manifest token_count",
+      "ok": true,
+      "detail": "35898527 vs 35898527"
+    },
+    {
+      "check": "no ghost markers left in clean content",
+      "ok": true,
+      "detail": {}
+    },
+    {
+      "check": "no unmasked real-looking emails in clean content",
+      "ok": true,
+      "detail": 0
+    },
+    {
+      "check": "no ZWSP/BOM/U+FFFD/RLO in clean content",
+      "ok": true,
+      "detail": {
+        "ZWSP": 0,
+        "BOM": 0,
+        "U+FFFD": 0,
+        "RLO": 0
+      }
+    },
+    {
+      "check": "Indic joiners survive in clean anudesh shard",
+      "ok": true,
+      "detail": 2578
+    }
+  ],
+  "all_ok": true,
+  "recomputed": {
+    "raw_rows": {
+      "glaive": 112960,
+      "anudesh": 36820
+    },
+    "clean_docs": {
+      "glaive": 73539,
+      "anudesh": 35819
+    },
+    "quarantined": {
+      "glaive": 39421,
+      "anudesh": 1001
+    },
+    "joiners_in_clean_anudesh": 2578
+  }
+}

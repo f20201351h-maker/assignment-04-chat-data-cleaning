@@ -1,0 +1,15 @@
+# Static site. The data file is generated locally by the Python pipeline and
+# committed (site/data/site.json); Netlify only runs the checks and copies files.
+[build]
+  base = "."
+  command = "node site/build.mjs"
+  publish = "site/dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"

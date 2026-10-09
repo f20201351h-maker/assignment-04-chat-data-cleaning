@@ -1,0 +1,919 @@
+{
+  "normalize": {
+    "nfc_changed": [
+      {
+        "source": "glaive",
+        "src_index": 34684,
+        "kind": "nfc_changed",
+        "before": "slowly wear away at even the hardest stone.\n2. Arabic: \"لا يَحْرِقُ الشَّمْسُ الصَّبْرَ\" (Lā yaḥriqu al-shamsu al-ṣabru)",
+        "after_doc_excerpt": "slowly wear away at even the hardest stone.\n2. Arabic: \"لا يَحْرِقُ الشَّمْسُ الصَّبْرَ\" (Lā yaḥriqu al-shamsu al-ṣabru)"
+      },
+      {
+        "source": "glaive",
+        "src_index": 37526,
+        "kind": "nfc_changed",
+        "before": "USER: In addition to the existing requirements, please desig",
+        "after_doc_excerpt": "USER: In addition to the existing requirements, please desig"
+      }
+    ],
+    "control_char": [
+      {
+        "source": "glaive",
+        "src_index": 69130,
+        "kind": "control_char",
+        "before": " 220 130 106 210 110 96 198 136 208 142 212 146\" becomes \"nôdð¨bòrê¢fì¤læpàhÌjÒnÆÐÔ\"\nStep 4: Reverse the order of",
+        "after_doc_excerpt": " 220 130 106 210 110 96 198 136 208 142 212 146\" becomes \"nôdð¨bòrê¢fì¤læpàhÌjÒnÆÐÔ\"\nStep 4: Reverse the order of the ch"
+      }
+    ],
+    "zwnj_kept_indic": [
+      {
+        "source": "anudesh",
+        "src_index": 26,
+        "kind": "zwnj_kept_indic",
+        "before": "ai4ഭാരത്‌ എന്ന കോമാപ്പനി research parkil നിന്നും സാക്ഷി ജോഷിയെ hire ",
+        "after_doc_excerpt": "ai4ഭാരത്‌ എന്ന കോമാപ്പനി research parkil നിന്നും സാക്ഷി ജോഷിയെ hire "
+      },
+      {
+        "source": "anudesh",
+        "src_index": 26,
+        "kind": "zwnj_kept_indic",
+        "before": "അതേ അതു തന്നെആണ്‌ കാരണം",
+        "after_doc_excerpt": "അതേ അതു തന്നെആണ്‌ കാരണം"
+      },
+      {
+        "source": "anudesh",
+        "src_index": 26,
+        "kind": "zwnj_kept_indic",
+        "before": "േശീയം ഉണ്ടായിരുന്നതിനാല്‍ അവരെ സാക്ഷി ജോഷിയെ ഹയര്‍ ചെയ്തതിന്‌ പ്രത്യേക അനുമതി നൽകാൻ കഴിയുകയുള്ളൂ. അതുകൊണ്ട് അശോക് ജുംജും",
+        "after_doc_excerpt": "േശീയം ഉണ്ടായിരുന്നതിനാല്‍ അവരെ സാക്ഷി ജോഷിയെ ഹയര്‍ ചെയ്തതിന്‌ പ്രത്യേക അനുമതി നൽകാൻ കഴിയുകയുള്ളൂ. അതുകൊണ്ട് അശോക് ജുംജും"
+      }
+    ],
+    "zwj_kept_indic": [
+      {
+        "source": "anudesh",
+        "src_index": 26,
+        "kind": "zwj_kept_indic",
+        "before": "അശോക് ജുംജുംവാല്‍ എന്ന പ്രൊഫസര്‍ ദേശീയം ഉണ്ടായിരുന്നുവെന്ന് AI4ഭാരത് റിസേഴ്ച",
+        "after_doc_excerpt": "അശോക് ജുംജുംവാല്‍ എന്ന പ്രൊഫസര്‍ ദേശീയം ഉണ്ടായിരുന്നുവെന്ന് AI4ഭാരത് റിസേഴ്ച"
+      },
+      {
+        "source": "anudesh",
+        "src_index": 26,
+        "kind": "zwj_kept_indic",
+        "before": "അശോക് ജുംജുംവാല്‍ പ്രൊഫസര്‍ ദേശീയം ഉണ്ടായിരുന്നതിനാല്‍ അവരെ സാക്ഷി ജോഷിയെ ഹയ",
+        "after_doc_excerpt": "അശോക് ജുംജുംവാല്‍ പ്രൊഫസര്‍ ദേശീയം ഉണ്ടായിരുന്നതിനാല്‍ അവരെ സാക്ഷി ജോഷിയെ ഹയ"
+      },
+      {
+        "source": "anudesh",
+        "src_index": 26,
+        "kind": "zwj_kept_indic",
+        "before": "അതുകൊണ്ട് അശോക് ജുംജുംവാല്‍ പ്രൊഫസര്‍ നിയോഗിച്ചത് ഒരു അന്തരാഷ്ട്ര പ്രേഷണം ആയിരിക്കുന്ന",
+        "after_doc_excerpt": "അതുകൊണ്ട് അശോക് ജുംജുംവാല്‍ പ്രൊഫസര്‍ നിയോഗിച്ചത് ഒരു അന്തരാഷ്ട്ര പ്രേഷണം ആയിരിക്കുന്ന"
+      }
+    ],
+    "zwj_removed_stray": [
+      {
+        "source": "anudesh",
+        "src_index": 8923,
+        "kind": "zwj_removed_stray",
+        "before": "our personal Aladdin's lamp when it comes to Indian travel. ‍♀️🇮🇳  Mountains or beaches? Bustling cities or serene villa",
+        "after_doc_excerpt": "our personal Aladdin's lamp when it comes to Indian travel. ♀️🇮🇳 Mountains or beaches? Bustling cities or serene village"
+      },
+      {
+        "source": "anudesh",
+        "src_index": 8923,
+        "kind": "zwj_removed_stray",
+        "before": "olesome comedies that'll have everyone glued to the screen. ‍‍‍ Feeling the chills? I'll point you towards the most spin",
+        "after_doc_excerpt": "ll have everyone glued to the screen. Feeling the chills? I'll point you towards the most spine-tingling thrillers that "
+      }
+    ],
+    "zero_width_space": [
+      {
+        "source": "anudesh",
+        "src_index": 9139,
+        "kind": "zero_width_space",
+        "before": "ᱴᱷᱤ​ᱠ ᱜᱮ᱾",
+        "after_doc_excerpt": "ᱴᱷᱤᱠ ᱜᱮ᱾"
+      },
+      {
+        "source": "anudesh",
+        "src_index": 9139,
+        "kind": "zero_width_space",
+        "before": "ᱴᱷᱤ​ᱠ ᱜᱮ᱾ ᱠᱟᱱᱟᱣᱟᱱᱜ ᱨᱮᱭᱟᱜᱼ ᱪᱮᱫᱟᱜᱼᱟᱜ ᱠᱟᱱᱟᱣᱟᱱ ᱟᱨᱚᱨᱤᱭᱟᱜ ᱠᱟᱱᱟᱣᱟᱱᱜ ᱾ ",
+        "after_doc_excerpt": "ᱴᱷᱤᱠ ᱜᱮ᱾ ᱠᱟᱱᱟᱣᱟᱱᱜ ᱨᱮᱭᱟᱜᱼ ᱪᱮᱫᱟᱜᱼᱟᱜ ᱠᱟᱱᱟᱣᱟᱱ ᱟᱨᱚᱨᱤᱭᱟᱜ ᱠᱟᱱᱟᱣᱟᱱᱜ ᱾ ᱡ"
+      },
+      {
+        "source": "anudesh",
+        "src_index": 10098,
+        "kind": "zero_width_space",
+        "before": "കേരളത്തിന്‍റെ ഔദ്യോഗിക പുഷ്​പം ?",
+        "after_doc_excerpt": "കേരളത്തിന്‍റെ ഔദ്യോഗിക പുഷ്പം ?"
+      }
+    ],
+    "bom": [
+      {
+        "source": "anudesh",
+        "src_index": 10732,
+        "kind": "bom",
+        "before": "e following 3 parameters and returns the required answer: * ﻿﻿N: Represents the number of houses * ﻿﻿K: Represents the n",
+        "after_doc_excerpt": "ing 3 parameters and returns the required answer: * N: Represents the number of houses * K: Represents the number of con"
+      }
+    ]
+  },
+  "format": [
+    {
+      "source": "glaive",
+      "src_index": 1,
+      "raw_chat": "USER: Can you tell me the latest news headlines for the United States?\n\nASSISTANT: <functioncall> {\"name\": \"get_news_headlines\", \"arguments\": '{\"country\": \"United States\"}'} <|endoftext|>\n\nFUNCTION RESPONSE: {\"headlines\": [\"Biden announces new vaccine mandates\", \"Hurricane Ida devastates Louisiana\", \"Apple unveils new iPhone\", \"NASA's Perseverance rover collects first Mars rock sample\"]}\n\nASSISTANT: Here are the latest news headlines for the United States:\n1. Biden announces new vaccine mandates\n2. Hurricane Ida devastates Louisiana\n3. Apple unveils new iPhone\n4. NASA's Perseverance rover collects first Mars rock sample <|endoftext|>\n\nUSER: That's interesting. What about the news in France?\n\nASSISTANT: <functioncall> {\"name\": \"get_news_headlines\", \"arguments\": '{\"country\": \"France\"}'} <|endoftext|>\n\nFUNCTION RESPONSE: {\"headlines\": [\"France recalls ambassadors to US and Australia\", \"Fren",
+      "canonical": " rock sample\"]}<|assistant|>Here are the latest news headlines for the United States:\n1. Biden announces new vaccine mandates\n2. Hurricane Ida devastates Louisiana\n3. Apple unveils new iPhone\n4. NASA's Perseverance rover collects first Mars rock sample<|user|>That's interesting. What about the news in France?<|assistant|>{\"arguments\": {\"country\": \"France\"}, \"name\": \"get_news_headlines\"}<|tool|>{\"headlines\": [\"France recalls ambassadors to US and Australia\", \"French election: Macron's party braces for tough fight\", \"Louvre Museum to undergo major overhaul\", \"France to offer free birth control to all women under 25\"]}<|assistant|>Here are the latest news headlines for France:\n1. France recalls ambassadors to US and Australia\n2. French election: Macron's party braces for tough fight\n3. Louvre Museum to undergo major overhaul\n4. France to offer free birth control to all women under 25<|end|>",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant with access to the following functions. Use them if required -\n{\n    \"name\": \"get_news_headlines\",\n    \"description\": \"Get the latest news headlines\",\n    \"parameters\": {\n        \"type\": \"object\",\n        \"properties\": {\n            \"country\": {\n                \"type\": \"string\",\n                \"description\": \"The country for which to fetch news\"\n            }\n        },\n        \"required\": [\n            \"country\"\n        ]\n    }\n}"
+        },
+        {
+          "role": "user",
+          "content": "Can you tell me the latest news headlines for the United States?"
+        },
+        {
+          "role": "assistant",
+          "content": "",
+          "tool_call": {
+            "name": "get_news_headlines",
+            "arguments": {
+              "country": "United States"
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "content": "{\"headlines\": [\"Biden announces new vaccine mandates\", \"Hurricane Ida devastates Louisiana\", \"Apple unveils new iPhone\", \"NASA's Perseverance rover collects first Mars rock sample\"]}"
+        },
+        {
+          "role": "assistant",
+          "content": "Here are the latest news headlines for the United States:\n1. Biden announces new vaccine mandates\n2. Hurricane Ida devastates Louisiana\n3. Apple unveils new iPhone\n4. NASA's Perseverance rover collects first Mars rock sample"
+        },
+        {
+          "role": "user",
+          "content": "That's interesting. What about the news in France?"
+        },
+        {
+          "role": "assistant",
+          "content": "",
+          "tool_call": {
+            "name": "get_news_headlines",
+            "arguments": {
+              "country": "France"
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "content": "{\"headlines\": [\"France recalls ambassadors to US and Australia\", \"French election: Macron's party braces for tough fight\", \"Louvre Museum to undergo major overhaul\", \"France to offer free birth control to all women under 25\"]}"
+        },
+        {
+          "role": "assistant",
+          "content": "Here are the latest news headlines for France:\n1. France recalls ambassadors to US and Australia\n2. French election: Macron's party braces for tough fight\n3. Louvre Museum to undergo major overhaul\n4. France to offer free birth control to all women under 25"
+        }
+      ]
+    },
+    {
+      "source": "glaive",
+      "src_index": 2,
+      "raw_chat": "USER: I need a new password. Can you generate one for me?\n\nASSISTANT: Of course. How long would you like your password to be? And would you like it to include symbols? <|endoftext|>\n\nUSER: I would like it to be 12 characters long and yes, please include symbols.\n\nASSISTANT: <functioncall> {\"name\": \"generate_password\", \"arguments\": '{\"length\": 12, \"include_symbols\": true}'} <|endoftext|>\n\nFUNCTION RESPONSE: {\"password\": \"4&7j#9@1Q6*\"}\n\nASSISTANT: Here is your new password: 4&7j#9@1Q6*. Please make sure to save it in a secure location. <|endoftext|>",
+      "canonical": "te of the task\"\n            },\n            \"priority\": {\n                \"type\": \"string\",\n                \"enum\": [\n                    \"low\",\n                    \"medium\",\n                    \"high\"\n                ],\n                \"description\": \"The priority of the task\"\n            }\n        },\n        \"required\": [\n            \"title\",\n            \"due_date\",\n            \"priority\"\n        ]\n    }\n}<|user|>I need a new password. Can you generate one for me?<|assistant|>Of course. How long would you like your password to be? And would you like it to include symbols?<|user|>I would like it to be 12 characters long and yes, please include symbols.<|assistant|>{\"arguments\": {\"include_symbols\": true, \"length\": 12}, \"name\": \"generate_password\"}<|tool|>{\"password\": \"4&7j#9@1Q6*\"}<|assistant|>Here is your new password: 4&7j#9@1Q6*. Please make sure to save it in a secure location.<|end|>",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a helpful assistant with access to the following functions. Use them if required -\n{\n    \"name\": \"generate_password\",\n    \"description\": \"Generate a random password\",\n    \"parameters\": {\n        \"type\": \"object\",\n        \"properties\": {\n            \"length\": {\n                \"type\": \"integer\",\n                \"description\": \"The length of the password\"\n            },\n            \"include_symbols\": {\n                \"type\": \"boolean\",\n                \"description\": \"Whether to include symbols in the password\"\n            }\n        },\n        \"required\": [\n            \"length\"\n        ]\n    }\n}\n\n{\n    \"name\": \"create_task\",\n    \"description\": \"Create a new task in a task management system\",\n    \"parameters\": {\n        \"type\": \"object\",\n        \"properties\": {\n            \"title\": {\n                \"type\": \"string\",\n                \"description\": \"The title of the task\"\n            },\n            \"due_date\": {\n                \"type\": \"string\",\n                \"format\": \"date\",\n                \"description\": \"The due date of the task\"\n            },\n            \"priority\": {\n                \"type\": \"string\",\n                \"enum\": [\n                    \"low\",\n                    \"medium\",\n                    \"high\"\n                ],\n                \"description\": \"The priority of the task\"\n            }\n        },\n        \"required\": [\n            \"title\",\n            \"due_date\",\n            \"priority\"\n        ]\n    }\n}"
+        },
+        {
+          "role": "user",
+          "content": "I need a new password. Can you generate one for me?"
+        },
+        {
+          "role": "assistant",
+          "content": "Of course. How long would you like your password to be? And would you like it to include symbols?"
+        },
+        {
+          "role": "user",
+          "content": "I would like it to be 12 characters long and yes, please include symbols."
+        },
+        {
+          "role": "assistant",
+          "content": "",
+          "tool_call": {
+            "name": "generate_password",
+            "arguments": {
+              "length": 12,
+              "include_symbols": true
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "content": "{\"password\": \"4&7j#9@1Q6*\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "Here is your new password: 4&7j#9@1Q6*. Please make sure to save it in a secure location."
+        }
+      ]
+    }
+  ],
+  "langid": {
+    "assistant_language_outside_source_claim": [
+      {
+        "source": "glaive",
+        "src_index": 10605,
+        "detail": "fr",
+        "user": "Calculate the average age of the students in the class, but this time, the class is divided into two groups: Group A and Group B. Group A consists of students aged 11, 12, and 13, while Group B consists of students aged 14, 16, and 18. Addi",
+        "assistant": "Voici une solution en SQL pour calculer l'âge moyen des étudiants dans chaque groupe et sous-groupe:\n```\n-- Création de la table avec les âges des étudiants\nCREATE TABLE etudiants (\n nom VARCHAR(50),\n age INT,\n groupe VARCHAR(10),\n sous_gro"
+      },
+      {
+        "source": "glaive",
+        "src_index": 18856,
+        "detail": "es",
+        "user": "Write a comprehensive review of La Taqueria, a Mexican restaurant located in the heart of downtown Los Angeles, which has been in business for over 10 years and has won numerous awards for its authentic cuisine and exceptional customer serv",
+        "assistant": "La Taqueria es un restaurante mexicano ubicado en el corazón del centro de Los Ángeles, que ha estado en el negocio por más de 10 años y ha ganado numerosos premios por su auténtica cocina y excepcional servicio al cliente.\nAtmósfera y deco"
+      },
+      {
+        "source": "glaive",
+        "src_index": 25842,
+        "detail": "es",
+        "user": "Write a comprehensive Wikipedia summary of the University of California, San Francisco in less than 200 words. The summary should include a breakdown of the university's academic departments, research centers, notable alumni, and notable fa",
+        "assistant": "section*{English}\nThe University of California, San Francisco (UCSF) is a public research university located in San Francisco, California. It was founded in 1864 as Toland Medical College and merged with the University of California system "
+      },
+      {
+        "source": "glaive",
+        "src_index": 33832,
+        "detail": "fr",
+        "user": "Provide a detailed narrative that describes the origin story of a superhero and a villain, including their childhood, family background, and personal struggles that led them to become the characters they are today. The story should also inc",
+        "assistant": "Je suis désolé, mais je suis un assistant AI et je ne suis pas capable de créer une histoire complexe avec des illustrations, des vidéos et des enregistrements audio dans une langue autre que l'anglais. Cependant, je peux vous aider à trouv"
+      }
+    ],
+    "mixed": [
+      {
+        "source": "glaive",
+        "src_index": 30215,
+        "user": "Given a description of a food, provide instructions on how to prepare it, but with the added constraint that the instructions must be written in Japanese. The food in question is Miso soup, but the de",
+        "scripts": {
+          "Latin": 864
+        }
+      },
+      {
+        "source": "anudesh",
+        "src_index": 51,
+        "user": "Hello! Tell me something about the culture of Gujarat\n\nગુજરાતમાં સુરત શહેરનું શું મહત્વ છે\n\nWhat is the significance of Surat city in Gujarat?",
+        "scripts": {
+          "Latin": 85,
+          "Gujarati": 30
+        }
+      },
+      {
+        "source": "anudesh",
+        "src_index": 124,
+        "user": "Hi Anudesh! How are you?\n\nCool! Just keep talking to me in english. I will use tamil but you should only reply in english is that okay?\n\nவானம்‌ blue ஆக்‌ எதுக்கு இருகு ?",
+        "scripts": {
+          "Latin": 107,
+          "Tamil": 20
+        }
+      }
+    ],
+    "user_language_outside_source_claim": [
+      {
+        "source": "glaive",
+        "src_index": 32855,
+        "detail": "fr",
+        "user": "Quel est le nombre de côtés d'un triangle qui possède un angle de 45 degrés, un côté de 6cm et un périmètre de 20cm?\n\nComment fonctionne la cryptographie à clé publique?",
+        "assistant": "Pour trouver le nombre de côtés d'un triangle qui possède un angle de 45 degrés, un côté de 6cm et un périmètre de 20cm, nous pouvons utiliser le théorème de Pythagore pour trouver la longueur des deux autres côtés du triangle.\nTout d'abord"
+      },
+      {
+        "source": "glaive",
+        "src_index": 93650,
+        "detail": "fr",
+        "user": "Hey, I wrote a poem in French. Can you analyze its sentiment for me?\n\nHere it is - \"La vie est une fleur dont l'amour est le miel. Le bonheur n'est pas une destination, c'est un voyage.\"",
+        "assistant": "Of course, I'd be happy to help. Please share the poem with me.\n\nYour poem has a positive sentiment with a high confidence level of 0.98. It seems like you've written a very uplifting and optimistic piece. Well done!"
+      },
+      {
+        "source": "anudesh",
+        "src_index": 829,
+        "detail": "fr",
+        "user": "hello please quiz me in french\n\nje ne peux pas reponder a la premiere question\n\nne pas reponder",
+        "assistant": "Bien sûr! Je serai ravi de vous interroger en français. Voici quelques questions pour commencer :\n\n1. Comment vous appelez-vous ?\n2. Quel âge avez-vous ?\n3. D'où venez-vous ?\n4. Parlez-vous d'autres langues ?\n5. Quelle est votre couleur pré"
+      },
+      {
+        "source": "anudesh",
+        "src_index": 970,
+        "detail": "fr",
+        "user": "Bonjour\n\nJe ne parle que peu français, peux-tu m'apprendre le français\n\nCould you say that in English for me please",
+        "assistant": "Bonjour! Comment puis-je vous aider aujourd'hui?\n\nBien sûr! Je serais ravi de vous aider à apprendre le français. Par où voulez-vous commencer? Voulez-vous apprendre les bases de la grammaire et du vocabulaire, ou avez-vous des questions sp"
+      }
+    ],
+    "response_language_differs_flagged": [
+      {
+        "source": "anudesh",
+        "src_index": 259,
+        "detail": "en->kn",
+        "user": "Teach me basic ten Telugu words using Kannada and Hindi.\n\nTry generating the response again. There are no Telugu words in your previous response",
+        "assistant": "Sure! Here are ten basic Telugu words along with their translations in Kannada and Hindi:\n\n1. Hello:\n   - Kannada: ನಮಸ್ಕಾರ (Namaskāra)\n   - Hindi: नमस्ते (Namaste)\n\n2. Thank you:\n   - Kannada: ಧನ್ಯವಾದ"
+      },
+      {
+        "source": "anudesh",
+        "src_index": 979,
+        "detail": "en->te",
+        "user": "list out all the alphabets in telugu",
+        "assistant": "The Telugu alphabet consists of 56 letters. Here is a list of all the alphabets in Telugu:\n\n1. అ (A)\n2. ఆ (AA)\n3. ఇ (I)\n4. ఈ (EE)\n5. ఉ (U)\n6. ఊ (OO)\n7. ఋ (RU)\n8. ఎ (E)\n9. ఏ (EE)\n10. ఐ (AI)\n11. ఒ (O)\n1"
+      },
+      {
+        "source": "anudesh",
+        "src_index": 5871,
+        "detail": "en->ml",
+        "user": "what are the different tenses in malayalam?",
+        "assistant": "In Malayalam, there are three main tenses: past tense, present tense, and future tense. Here are some examples of verb conjugation in each tense:\n\n1. Past Tense:\n- Verbs ending with \"-യില്‍\" (-yil): എ"
+      },
+      {
+        "source": "anudesh",
+        "src_index": 5872,
+        "detail": "gu->en",
+        "user": "સપ્તપદી એટલે શું?\n\nexplain saptpadi related to marriage ritual and suggest some creative ideas to impliment it",
+        "assistant": "સપ્તપદી એક કાવ્યરચનાની આધારભૂત રીતિ છે જેથી કાવ્યમાં સાત પદોથી મુક્ત થઈને સાત પંક્તિઓ બનાવવામાં આવે છે. પ્રત્યેક પંક્તિમાં સાત અક્ષરોથી બનેલી રચના હોય છે. સપ્તપદીમાં મુખ્યત્વે પ્રેમ, પ્રકૃતિ, યુદ્ધ, ધ"
+      },
+      {
+        "source": "anudesh",
+        "src_index": 6567,
+        "detail": "ta->en",
+        "user": "Tell me how to use கூகுள் பே to make transactions?",
+        "assistant": "I'm sorry, but I'm unable to provide specific instructions for using a service called \"கூகுள் பே\" as it doesn't seem to be a well-known platform or service. However, if you are referring to Google Pay"
+      },
+      {
+        "source": "anudesh",
+        "src_index": 8032,
+        "detail": "te->en",
+        "user": "మీరు ఏ విధంగా చెక్కునుంచారనుకుంటున్నారు? మీరు యాప్ కార్యకలాపాలకు సంబంధించిన ఏదో సహాయం అవసరమా? దయచేసి స్పష్టంగా చెప్పండి, మీరు ఏ ప్రకారంలో మంచి సలహా అవసరం ఉన్నారు అని, స్థలం, పంట, వాతావరణ సందర్భాలు మొద",
+        "assistant": "మీరు చెక్ చేయాలనుకుంటున్నారా? మాకు కొన్ని వివరాలు అవసరం ఉంటే చెప్పండి.\n\nనేను ఒక ఆంగ్ల నిపుణుడు ఉన్నాను, కాబట్టి మీకు ఆంగ్ల లో సహాయం చేస్తాను. మీకు ఏ విషయంలో సహాయం కావాలనుకుంటున్నారో చెప్పండి.\n\nIn the "
+      }
+    ]
+  },
+  "quality": {
+    "latex_backslashes_stripped": [
+      {
+        "source": "glaive",
+        "src_index": 92,
+        "detail": [
+          "documentclass{",
+          "usepackage{",
+          "usepackage{",
+          "begin{"
+        ],
+        "user": "What is a Python code that can generate five tips for each task of time management, study habits, social life, mental health, and career preparation? The tips should be randomized and unique for each ",
+        "assistant": "Here is a Python code that can generate five randomized tips for each task of time management, study habits, social life, mental health, and career preparation based on user input:\n```python\nimport random\n# Time Management Tips\ntime_management_tips = [\n \"Use a planner to keep track of your tasks and deadlines.\",\n \"Prioritize your tasks based on their importance and urgency.\",\n \"Break larger tasks "
+      },
+      {
+        "source": "glaive",
+        "src_index": 282,
+        "detail": [
+          "frac{",
+          "frac{",
+          "frac{"
+        ],
+        "user": "Explain the String Theory using Latex. Provide an overview of the main concepts and equations involved in this theory. How does this theory attempt to unify quantum mechanics and general relativity?",
+        "assistant": "The string theory is a theoretical framework that attempts to explain the fundamental nature of matter and energy in the universe. It proposes that the fundamental building blocks of the universe are not point-like particles, but rather one-dimensional objects called strings. These strings vibrate at different frequencies, and these vibrations determine the properties of the particles that they fo"
+      },
+      {
+        "source": "glaive",
+        "src_index": 293,
+        "detail": [
+          "begin{",
+          "end{"
+        ],
+        "user": "Can you complete this poem fragment with the missing lines in LaTeX format?\nbegin{verse}\nThe sun rises\npeeking through the trees\n__________________\n__________________\nend{verse",
+        "assistant": "The birds chirp and sing\nA gentle breeze flows with ease\nbegin{verse}\nAnother day begins\nNature's beauty on display\nend{verse"
+      },
+      {
+        "source": "glaive",
+        "src_index": 475,
+        "detail": [
+          "begin{",
+          "end{",
+          "begin{",
+          "begin{"
+        ],
+        "user": "What is the Latex code to display a mathematical equation for calculating the total cost of a purchase, given the following information in a table:\nbegin{center}\nbegin{tabular}{ |c|c| }\nhline\n Quantit",
+        "assistant": "The Latex code to calculate the total cost of the purchase using the above table would be:\nbegin{equation*}\ntext{Total cost} = text{Quantity} times text{Price} = 10 times $4 = $40\nend{equation*}\nYou can use this code in your Latex document to display the total cost of the purchase."
+      }
+    ],
+    "empty_assistant_turn": [
+      {
+        "source": "glaive",
+        "src_index": 11267,
+        "detail": null,
+        "user": "Provide a valid HTML element for a drop-down list.",
+        "assistant": ""
+      },
+      {
+        "source": "glaive",
+        "src_index": 33683,
+        "detail": null,
+        "user": "How can we prove Fermat's Last Theorem using modular arithmetic and number theory? Write the proof using [LaTeX]. Recall that Fermat's Last Theorem states that there are no three positive integers a, ",
+        "assistant": "$$text{Assume there exists a solution to Fermat's Last Theorem, where }a, b, c, text{ and }ntext{ are positive integers with }n > 2.\ntext{Without loss of generality, assume }gcd(a, b, c) = 1. $$\nUsing modular arithmetic, we can see that $a^n$, $b^n$, and $c^n$ must all be congruent to either 0 or 1 modulo 3. However, for the equation $a^n + b^n = c^n$ to hold, two of the three terms must be congru"
+      }
+    ],
+    "looping_output": [
+      {
+        "source": "glaive",
+        "src_index": 77934,
+        "detail": "quad",
+        "user": "What is the Latex code to display the quadratic formula and prompt the user to enter the values of a, b, and c to solve for x using the formula?\nHere is the Latex code:\n[x=frac{-bpmsqrt{b^2-4ac}}{2a}]",
+        "assistant": "begin{align*}\ntext{Enter the value of }atext{: }&quadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadqua"
+      },
+      {
+        "source": "glaive",
+        "src_index": 98899,
+        "detail": "quad",
+        "user": "Please write a haiku about falling leaves using the following [ Latex ] format while ensuring that each line of the poem has at least one word that starts with the letter \"F\". Additionally, please inc",
+        "assistant": "$text{Falling leaves}quadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquadquad$\n$text{Fluttering and falling free}quadquadquadquadquadqua"
+      },
+      {
+        "source": "glaive",
+        "src_index": 104282,
+        "detail": "8,88",
+        "user": "Can you help me solve a math problem that involves a lengthy number and its various properties? The number in question is 8,888,888,888,888,888,888,888,888,888,888,888,888,888,888,888,888,888,888,888,",
+        "assistant": "Sure, what is the math problem you need help with?"
+      },
+      {
+        "source": "anudesh",
+        "src_index": 4919,
+        "detail": ", moothram",
+        "user": "aadhar card techukune vidhanam enti",
+        "assistant": "Aadhaar card techukune vidhanam Bharat Sarkar dvaara prarambh chesina ekamaina prakaramaina vidhanam. Aadhaar card techukodaniki vidhanam entante:\n\n1. Aadhaar card techukodaniki prathama koraku, meeku Aadhaar Enrolment Center ki vellalsindi. Ee center lo meeku Aadhaar card techukodaniki sahayata istapadatam jarugutundi.\n\n2. Aadhaar card techukodaniki mundu, meeku Aadhaar Enrolment Form fill cheyal"
+      }
+    ],
+    "greeting_only_prompt": [
+      {
+        "source": "anudesh",
+        "src_index": 2837,
+        "detail": "Hi good",
+        "user": "Hi good",
+        "assistant": "Hi! How can I assist you today?"
+      },
+      {
+        "source": "anudesh",
+        "src_index": 2868,
+        "detail": "hey bro!",
+        "user": "hey bro!",
+        "assistant": "Hey! What's up?"
+      },
+      {
+        "source": "anudesh",
+        "src_index": 6105,
+        "detail": "Good night",
+        "user": "Good night",
+        "assistant": "Good night! Have a restful sleep."
+      },
+      {
+        "source": "anudesh",
+        "src_index": 9348,
+        "detail": "hi",
+        "user": "hi",
+        "assistant": "Hello! How can I assist you today?"
+      }
+    ]
+  },
+  "dedup": {
+    "near_threshold": [
+      {
+        "a": [
+          "glaive",
+          37
+        ],
+        "b": [
+          "glaive",
+          40869
+        ],
+        "jaccard": 0.75,
+        "minhash_estimate": 0.777,
+        "a_text": "Hi, I'm looking for books by J.K. Rowling. Can you help me find them?\n\n{\"arguments\": {\"query\": \"J.K. Rowling\"}, \"name\": \"search_books\"}\n\n{\"status\": \"success\", \"data\": [{\"title\": \"Harry Potter and the Philosopher's Stone\", \"author\": \"J.K. Rowling\"}, {\"title\": \"Harry Potter and the Chamber of Secrets\", \"author\": \"J.K. Rowling\"}, {\"title\": \"Harry Potter and the Prisoner of Azkaban\", \"author\": \"J.K. Rowling\"}]}\n\nI found some books by J.K. Rowling for you. Here they are:\n1. Harry Potter and the Philo",
+        "b_text": "Hi, I am looking for books by J.K. Rowling.\n\n{\"arguments\": {\"query\": \"J.K. Rowling\"}, \"name\": \"search_books\"}\n\n{\"results\": [{\"title\": \"Harry Potter and the Philosopher's Stone\", \"author\": \"J.K. Rowling\"}, {\"title\": \"Harry Potter and the Chamber of Secrets\", \"author\": \"J.K. Rowling\"}, {\"title\": \"Harry Potter and the Prisoner of Azkaban\", \"author\": \"J.K. Rowling\"}]}\n\nI found some books by J.K. Rowling for you. Here they are:\n1. Harry Potter and the Philosopher's Stone\n2. Harry Potter and the Chamb"
+      },
+      {
+        "a": [
+          "glaive",
+          38
+        ],
+        "b": [
+          "glaive",
+          56861
+        ],
+        "jaccard": 0.75,
+        "minhash_estimate": 0.759,
+        "a_text": "Can you order a pizza for me?\n\nI'm sorry, but I'm unable to perform external tasks like ordering a pizza. My capabilities are currently limited to the functions provided to me, such as searching for movies based on specified criteria.",
+        "b_text": "Can you order a pizza for me?\n\nI'm sorry, but I'm unable to perform external tasks like ordering a pizza. My capabilities are currently limited to the functions provided to me, such as searching for a movie based on its title."
+      },
+      {
+        "a": [
+          "glaive",
+          38
+        ],
+        "b": [
+          "glaive",
+          70531
+        ],
+        "jaccard": 0.75,
+        "minhash_estimate": 0.786,
+        "a_text": "Can you order a pizza for me?\n\nI'm sorry, but I'm unable to perform external tasks like ordering a pizza. My capabilities are currently limited to the functions provided to me, such as searching for movies based on specified criteria.",
+        "b_text": "Can you order a pizza for me?\n\nI'm sorry, but I'm unable to perform external tasks like ordering a pizza. My capabilities are currently limited to the functions provided to me, such as searching for a book by title or author."
+      },
+      {
+        "a": [
+          "glaive",
+          38
+        ],
+        "b": [
+          "glaive",
+          78136
+        ],
+        "jaccard": 0.75,
+        "minhash_estimate": 0.795,
+        "a_text": "Can you order a pizza for me?\n\nI'm sorry, but I'm unable to perform external tasks like ordering a pizza. My capabilities are currently limited to the functions provided to me, such as searching for movies based on specified criteria.",
+        "b_text": "Can you order a pizza for me?\n\nI'm sorry, but I'm unable to perform external tasks like ordering a pizza. My capabilities are currently limited to the functions provided to me, such as searching for books based on title or author."
+      },
+      {
+        "a": [
+          "glaive",
+          38
+        ],
+        "b": [
+          "glaive",
+          106968
+        ],
+        "jaccard": 0.75,
+        "minhash_estimate": 0.795,
+        "a_text": "Can you order a pizza for me?\n\nI'm sorry, but I'm unable to perform external tasks like ordering a pizza. My capabilities are currently limited to the functions provided to me, such as searching for movies based on specified criteria.",
+        "b_text": "Can you order a pizza for me?\n\nI'm sorry, but I'm unable to perform external tasks like ordering a pizza. My capabilities are currently limited to the functions provided to me, such as searching for books based on title or author."
+      },
+      {
+        "a": [
+          "glaive",
+          87
+        ],
+        "b": [
+          "glaive",
+          5781
+        ],
+        "jaccard": 0.75,
+        "minhash_estimate": 0.714,
+        "a_text": "Hi, I was born on 1990-05-15. Can you tell me how old I am today?\n\n{\"arguments\": {\"date_of_birth\": \"1990-05-15\"}, \"name\": \"calculate_age\"}\n\n{\"age\": 31}\n\nAccording to the date of birth you provided, you are 31 years old today.",
+        "b_text": "Hi, I was born on 1990-05-15. Can you tell me how old I am?\n\n{\"arguments\": {\"date_of_birth\": \"1990-05-15\"}, \"name\": \"calculate_age\"}\n\n{\"age\": 31}\n\nAccording to the date of birth you provided, you are 31 years old."
+      }
+    ],
+    "high": [
+      {
+        "a": [
+          "anudesh",
+          30425
+        ],
+        "b": [
+          "anudesh",
+          32507
+        ],
+        "jaccard": 1.0,
+        "minhash_estimate": 1.0,
+        "a_text": "हैलो अनुदेश! आप कैसे हैं?\n\nनमस्ते! मैं ठीक हूँ, पूछने के लिए धन्यवाद। आज मैं आपकी कैसे मदद कर सकता हूँ? क्या आपके कोई प्रश्न या विषय हैं जिन पर आप चर्चा करना चाहते हैं? मैं यहाँ किसी भी जानकारी या मार्गदर्शन के साथ आपकी मदद करने के लिए हूँ।",
+        "b_text": "हैलो अनुदेश, आप कैसे हैं?\n\nनमस्ते, मैं ठीक हूँ, पूछने के लिए धन्यवाद। आज मैं आपकी कैसे मदद कर सकता हूँ? क्या आपके कोई प्रश्न या विषय हैं जिन पर आप चर्चा करना चाहते हैं? मैं यहाँ किसी भी जानकारी या मार्गदर्शन के साथ आपकी मदद करने के लिए हूँ।"
+      },
+      {
+        "a": [
+          "anudesh",
+          34174
+        ],
+        "b": [
+          "anudesh",
+          36431
+        ],
+        "jaccard": 1.0,
+        "minhash_estimate": 1.0,
+        "a_text": "एक ट्रांसफॉर्मर क्या है\n\nएक ट्रांसफॉर्मर एक प्रकार का विद्युत उपकरण है जो विद्युत चुम्बकीय प्रेरण के माध्यम से विद्युत ऊर्जा को एक परिपथ से दूसरे परिपथ में स्थानांतरित करता है। इसका उपयोग आमतौर पर एक वैकल्पिक धारा (एसी) विद्युत आपूर्ति के वोल्टेज को बढ़ाने या कम करने के लिए किया जाता है। ट्रांसफॉर्मर में तार की दो कुंडलियाँ होती हैं, जिन्हें प्राथमिक और माध्यमिक कुंडलियों के रूप में जाना जाता है, जो एक सामान्य चुंबकीय कोर के चारों ओर लिपटे होते हैं। जब एक वैकल्पिक धारा प्राथमिक कुंडल के माध्यम स",
+        "b_text": "ट्रांसफॉर्मर क्या है\n\nएक ट्रांसफॉर्मर एक प्रकार का विद्युत उपकरण है जो विद्युत चुम्बकीय प्रेरण के माध्यम से विद्युत ऊर्जा को एक परिपथ से दूसरे परिपथ में स्थानांतरित करता है। इसका उपयोग आमतौर पर एक वैकल्पिक धारा (एसी) विद्युत आपूर्ति के वोल्टेज को बढ़ाने या कम करने के लिए किया जाता है। ट्रांसफॉर्मर में तार की दो कुंडलियाँ होती हैं, जिन्हें प्राथमिक और माध्यमिक कुंडलियों के रूप में जाना जाता है, जो एक सामान्य चुंबकीय कोर के चारों ओर लिपटे होते हैं। जब एक वैकल्पिक धारा प्राथमिक कुंडल के माध्यम से प"
+      },
+      {
+        "a": [
+          "anudesh",
+          36482
+        ],
+        "b": [
+          "anudesh",
+          36578
+        ],
+        "jaccard": 1.0,
+        "minhash_estimate": 1.0,
+        "a_text": "नमस्ते अनुदेश, आप कैसे हैं?\n\nनमस्ते! मैं ठीक हूँ, पूछने के लिए धन्यवाद। आज मैं आपकी कैसे मदद कर सकता हूँ? क्या आपके कोई प्रश्न या विषय हैं जिन पर आप चर्चा करना चाहते हैं? मैं यहाँ किसी भी जानकारी या मार्गदर्शन के साथ आपकी मदद करने के लिए हूँ।",
+        "b_text": "नमस्ते, अनुदेश, आप कैसे हैं?\n\nनमस्ते, मैं ठीक हूँ, पूछने के लिए धन्यवाद। आज मैं आपकी कैसे मदद कर सकता हूँ? क्या आपके कोई प्रश्न या विषय हैं जिन पर आप चर्चा करना चाहते हैं? मैं यहाँ किसी भी जानकारी या मार्गदर्शन के साथ आपकी मदद करने के लिए हूँ।"
+      }
+    ],
+    "rejected_close": [
+      {
+        "a": [
+          "glaive",
+          34251
+        ],
+        "b": [
+          "glaive",
+          93972
+        ],
+        "jaccard": 0.749,
+        "minhash_estimate": 0.777,
+        "a_text": "Can you tell me about the movie \"Inception\"?\n\n{\"arguments\": {\"movie_title\": \"Inception\"}, \"name\": \"get_movie_details\"}\n\n{\"movie_title\": \"Inception\", \"director\": \"Christopher Nolan\", \"release_year\": 2010, \"genre\": \"Science Fiction\", \"cast\": [\"Leonardo DiCaprio\", \"Ellen Page\", \"Joseph Gordon-Levitt\"], \"plot\": \"A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.\"}\n\nThe movie \"Inception\" is a Science F",
+        "b_text": "Can you tell me about the movie \"Inception\"?\n\n{\"arguments\": {\"movie_title\": \"Inception\"}, \"name\": \"get_movie_details\"}\n\n{\"movie_title\": \"Inception\", \"director\": \"Christopher Nolan\", \"release_year\": 2010, \"genre\": \"Science Fiction\", \"cast\": [\"Leonardo DiCaprio\", \"Ellen Page\", \"Joseph Gordon-Levitt\"], \"plot\": \"A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.\"}\n\nThe movie \"Inception\" is a Science F"
+      },
+      {
+        "a": [
+          "glaive",
+          23277
+        ],
+        "b": [
+          "glaive",
+          25176
+        ],
+        "jaccard": 0.749,
+        "minhash_estimate": 0.696,
+        "a_text": "Can you tell me about the movie \"Inception\" released in 2010?\n\n{\"arguments\": {\"title\": \"Inception\", \"year\": 2010}, \"name\": \"get_movie_details\"}\n\n{\"title\": \"Inception\", \"year\": 2010, \"director\": \"Christopher Nolan\", \"genre\": \"Science Fiction\", \"rating\": 8.8, \"description\": \"A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.\"}\n\nThe movie \"Inception\" was released in 2010. It was directed by Christoph",
+        "b_text": "Can you tell me about the movie \"Inception\" released in 2010?\n\n{\"arguments\": {\"title\": \"Inception\", \"year\": 2010}, \"name\": \"get_movie_details\"}\n\n{\"title\": \"Inception\", \"year\": 2010, \"director\": \"Christopher Nolan\", \"genre\": \"Science Fiction\", \"rating\": 8.8, \"description\": \"A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.\"}\n\nThe movie \"Inception\" was released in 2010. It was directed by Christoph"
+      },
+      {
+        "a": [
+          "glaive",
+          32186
+        ],
+        "b": [
+          "glaive",
+          101471
+        ],
+        "jaccard": 0.749,
+        "minhash_estimate": 0.723,
+        "a_text": "Can you tell me about the movie \"Inception\" released in 2010?\n\n{\"arguments\": {\"title\": \"Inception\", \"year\": 2010}, \"name\": \"get_movie_details\"}\n\n{\"title\": \"Inception\", \"year\": 2010, \"director\": \"Christopher Nolan\", \"genre\": \"Science Fiction\", \"rating\": 8.8, \"description\": \"A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.\"}\n\nThe movie \"Inception\" was released in 2010. It was directed by Christoph",
+        "b_text": "Hey, can you tell me about the movie \"Inception\" released in 2010?\n\n{\"arguments\": {\"title\": \"Inception\", \"year\": 2010}, \"name\": \"get_movie_details\"}\n\n{\"title\": \"Inception\", \"year\": 2010, \"director\": \"Christopher Nolan\", \"genre\": \"Science Fiction\", \"rating\": 8.8, \"description\": \"A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.\"}\n\nThe movie \"Inception\" was released in 2010. It was directed by Chri"
+      },
+      {
+        "a": [
+          "glaive",
+          10722
+        ],
+        "b": [
+          "glaive",
+          74075
+        ],
+        "jaccard": 0.749,
+        "minhash_estimate": 0.679,
+        "a_text": "Can you tell me about the movie \"Inception\" released in 2010?\n\n{\"arguments\": {\"title\": \"Inception\", \"year\": 2010}, \"name\": \"get_movie_details\"}\n\n{\"title\": \"Inception\", \"year\": 2010, \"director\": \"Christopher Nolan\", \"genre\": \"Science fiction\", \"rating\": 8.8, \"description\": \"A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.\"}\n\nThe movie \"Inception\" was released in 2010. It was directed by Christoph",
+        "b_text": "Can you tell me more about the movie \"Inception\" that was released in 2010?\n\n{\"arguments\": {\"title\": \"Inception\", \"year\": 2010}, \"name\": \"get_movie_details\"}\n\n{\"title\": \"Inception\", \"year\": 2010, \"director\": \"Christopher Nolan\", \"genre\": \"Science Fiction\", \"rating\": 8.8, \"description\": \"A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.\"}\n\nThe movie \"Inception\" was directed by Christopher Nolan an"
+      }
+    ],
+    "largest_clusters": [
+      {
+        "size": 1120,
+        "head": [
+          "glaive",
+          83
+        ],
+        "head_text": "Can you please order a pizza for me?\n\nI'm sorry, but I'm unable to perform external tasks like ordering a pizza. My capabilities are currently limited to the functions provided to me. In this case, I can generate a random number within a given range."
+      },
+      {
+        "size": 845,
+        "head": [
+          "glaive",
+          38
+        ],
+        "head_text": "Can you order a pizza for me?\n\nI'm sorry, but I'm unable to perform external tasks like ordering a pizza. My capabilities are currently limited to the functions provided to me, such as searching for movies based on specified criteria."
+      },
+      {
+        "size": 654,
+        "head": [
+          "glaive",
+          128
+        ],
+        "head_text": "Hi, I would like to calculate my BMI. I weigh 70 kilograms and my height is 1.75 meters.\n\n{\"arguments\": {\"height\": 1.75, \"weight\": 70}, \"name\": \"calculate_bmi\"}\n\nBased on the information you provided, your Body Mass Index (BMI) is 22.86. This is considered a healthy weight range."
+      },
+      {
+        "size": 502,
+        "head": [
+          "glaive",
+          107
+        ],
+        "head_text": "Hi, I need to know the distance between New York and Los Angeles.\n\n{\"arguments\": {\"destination\": \"Los Angeles\", \"origin\": \"New York\"}, \"name\": \"calculate_distance\"}\n\nThe distance between New York and Los Angeles is approximately 2448.5 miles.\n\nThat's quite a distance! What about the distance from Lo"
+      },
+      {
+        "size": 433,
+        "head": [
+          "glaive",
+          24
+        ],
+        "head_text": "I need a random number between 1 and 100.\n\n{\"arguments\": {\"max\": 100, \"min\": 1}, \"name\": \"generate_random_number\"}\n\nThe random number generated between 1 and 100 is 42.\n\nCan you generate another random number but this time between 200 and 300?\n\n{\"arguments\": {\"max\": 300, \"min\": 200}, \"name\": \"genera"
+      }
+    ]
+  },
+  "pii": [
+    {
+      "source": "glaive",
+      "src_index": 44,
+      "kinds": [
+        "email"
+      ],
+      "masked_excerpt": "Hi, I want to create a new email account. Can you check if the email address [EMAIL] is available?\n\n{\"arguments\": {\"email\": \"[EMAIL]\"}, \"name\": \"check_email_availability\"}\n\n{\"status\": \"unavailable\", \"message\": \"The email address [EMAIL] "
+    },
+    {
+      "source": "glaive",
+      "src_index": 61,
+      "kinds": [
+        "email"
+      ],
+      "masked_excerpt": "ith that. Could you please provide me with the recipient's email address, the subject of the email, and the content you wish to send?\n\nThe recipient's email is [EMAIL]. The subject is \"Project Update\". And the message is \"Dear Boss, I have completed the project as per the given deadline. I have attached the final repor"
+    },
+    {
+      "source": "glaive",
+      "src_index": 269,
+      "kinds": [
+        "email"
+      ],
+      "masked_excerpt": "ith that. Could you please provide me with your name, email address, and the password you'd like to use for your new account?\n\nMy name is John Doe, my email is [EMAIL] and I'd like my password to be 'password123'.\n\n{\"arguments\": {\"email\": \"[EMAIL]\", \"name\": \"John Doe\", \"password\": \"password123\"}, \"name\": \"create_user_a"
+    },
+    {
+      "source": "glaive",
+      "src_index": 367,
+      "kinds": [
+        "email"
+      ],
+      "masked_excerpt": "e provide me with the recipient's email address, the subject of the email, and what you would like to say in the body of the email?\n\nSure, the email address is [EMAIL]. The subject is \"Monthly Report\" and in the body, I want to say \"Dear Boss, Please find attached the monthly report for your review. Best, [User]\".\n\n{\"a"
+    },
+    {
+      "source": "glaive",
+      "src_index": 437,
+      "kinds": [
+        "email"
+      ],
+      "masked_excerpt": "at. Could you please provide me with the recipient's email address, the subject of the email, and the content you wish to send?\n\nSure, the recipient's email is [EMAIL]. The subject is \"Project Update\" and the message is \"Dear Boss, The project is on track and we are set to complete it by the end of this week. Regards, "
+    },
+    {
+      "source": "glaive",
+      "src_index": 456,
+      "kinds": [
+        "email"
+      ],
+      "masked_excerpt": "vide me with the recipient's email address, the subject of the email, and the content you wish to include in the body of the email?\n\nSure, the email address is [EMAIL]. The subject is \"Project Update\", and for the body, write \"Dear Boss, I have completed the project as per the given deadline. I have attached the final "
+    }
+  ],
+  "decontam": [
+    {
+      "source": "glaive",
+      "src_index": 7106,
+      "hits": [
+        [
+          "math500",
+          153,
+          2,
+          0.044
+        ]
+      ],
+      "user": "Can you write a Java code to perform matrix multiplication of two matrices A and B? Please format the matrices as follows:\nMatrix A:\n1 2 3\n4 5 6\n7 8 9\nMatrix B:\n9 8 7\n6 5 4\n3 2 1\nYour code should output the resulting matrix in the same format.\n\nCan you explain how the for loop in your code works?\n\nW"
+    },
+    {
+      "source": "glaive",
+      "src_index": 17870,
+      "hits": [
+        [
+          "mmlu",
+          3828,
+          1,
+          0.036
+        ]
+      ],
+      "user": "Can you find the missing word that completes both the US Constitution and the Declaration of Independence?\n\"We hold these truths to be self-evident, that all men are created _____.\"\nHint: The word has five letters and starts with the letter 'e'.\n\nHow did the US Constitution come into existence?\n\nHow"
+    },
+    {
+      "source": "glaive",
+      "src_index": 21973,
+      "hits": [
+        [
+          "mmlu",
+          5471,
+          1,
+          0.024
+        ]
+      ],
+      "user": "Calculate the weighted mean of the following numbers, where the weights are the Fibonacci sequence up to the 10th term: 11, 15, 13, 17 and 19. Additionally, provide a confidence interval for the calculated mean with a 95% level of significance. Finally, write the R code for performing a two-sample t"
+    },
+    {
+      "source": "glaive",
+      "src_index": 47227,
+      "hits": [
+        [
+          "mmlu",
+          5857,
+          48,
+          0.203
+        ],
+        [
+          "mmlu",
+          5882,
+          48,
+          0.212
+        ],
+        [
+          "mmlu",
+          5962,
+          48,
+          0.194
+        ]
+      ],
+      "user": "Categorize this piece of text as to whether it is a fiction or non-fiction\nThe sun shone brightly in the sky above the small town.\n\nCan you explain the difference between a metaphor and a simile?\n\nCould you provide an example of a cacophony in literature?\n\nHow does imagery contribute to the overall "
+    },
+    {
+      "source": "glaive",
+      "src_index": 53561,
+      "hits": [
+        [
+          "math500",
+          153,
+          2,
+          0.044
+        ]
+      ],
+      "user": "How can I analyze the sales data from three stores using C++ code?\nHere is the given data set:\nStore A:\n- January sales: $5000\n- February sales: $6000\n- March sales: $7000\nStore B:\n- January sales: $4500\n- February sales: $5500\n- March sales: $6500\nStore C:\n- January sales: $4000\n- February sales: $"
+    },
+    {
+      "source": "glaive",
+      "src_index": 62279,
+      "hits": [
+        [
+          "mmlu",
+          5857,
+          12,
+          0.051
+        ],
+        [
+          "mmlu",
+          5882,
+          12,
+          0.053
+        ],
+        [
+          "mmlu",
+          5962,
+          12,
+          0.048
+        ]
+      ],
+      "user": "Inquiring about the emotional state of a third party, can you provide an alternative phrasing for the statement \"He/She expressed feeling sad and disappointed\"? It would be appreciated if the response was presented using the third person point of view.\n| Original Prompt |\n| ---------------|\n| He/She"
+    },
+    {
+      "source": "glaive",
+      "src_index": 66049,
+      "hits": [
+        [
+          "mmlu",
+          5857,
+          12,
+          0.051
+        ],
+        [
+          "mmlu",
+          5882,
+          12,
+          0.053
+        ],
+        [
+          "mmlu",
+          5962,
+          12,
+          0.048
+        ]
+      ],
+      "user": "Using the given sentence \"She cooked dinner, cleaned the dishes, and did the laundry,\" create a table comparing the verbs used to describe each task, the time it took to complete each task, and the level of difficulty for each task. Additionally, identify and explain the rhetorical purpose behind th"
+    },
+    {
+      "source": "glaive",
+      "src_index": 82452,
+      "hits": [
+        [
+          "mmlu",
+          5857,
+          12,
+          0.051
+        ],
+        [
+          "mmlu",
+          5882,
+          12,
+          0.053
+        ],
+        [
+          "mmlu",
+          5962,
+          12,
+          0.048
+        ]
+      ],
+      "user": "In an Excel table, list different examples of literature genres and their characteristics. Then, classify the following excerpt into one of these genres and provide evidence to support your classification:\nGenre | Characteristics\n--------|--------\nDrama | Emphasis on dialogue and conflict, often tra"
+    }
+  ]
+}
